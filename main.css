@@ -1,5 +1,11 @@
-/* Sticky footer styles
--------------------------------------------------- */
+@font-face {
+	font-family: 'icomoon';
+	src: url('fonts/icomoon.eot');
+	src: url('fonts/icomoon.eot?iefix') format('eot'),
+	     url('fonts/icomoon.woff') format('woff'),
+	     url('fonts/icomoon.ttf') format('truetype'),
+	     url('fonts/icomoon.svg#webfont') format('svg');
+}
 
 html,
 body {
@@ -10,7 +16,11 @@ body {
 h1, h2 {
     color: #ffffff;
     font-size: 50px;
-    
+}
+
+.page-header h1 {
+    padding-top:10px;
+    margin-top:10px;
 }
 
 h2 {
@@ -24,8 +34,7 @@ h2 {
 
 #navbar li a {
     color: #ffffff;
-    font-size: 16px;
-    
+    font-size: 16px; 
 }
 
 #navbar li>a:hover,
@@ -58,10 +67,23 @@ h2 {
     /* Negative indent footer by its height */
     margin: 0 auto -25px;
     /* Pad bottom by footer height */
-    padding: 25px 0 0 0px;
+    padding-bottom:25px;
     background-color: #005696;
 }
 
+/* Set the fixed height of the footer here */
+#footer {
+    height: 25px;
+    background-color: #F68026;
+    text-align:center;
+    margin-bottom:0px;
+}
+
+#footer h2 {
+    margin-bottom: 0px;
+}
+
+/* Home Page */ 
 #splash {
     height: 550px;
     background-image: url('arduino.jpg');
@@ -72,12 +94,30 @@ h2 {
     text-align: center;
 }
 
-/* Set the fixed height of the footer here */
-#footer {
-    height: 25px;
-    background-color: #F68026;
-    text-align:center;
-    margin-bottom:0px;
+/* Services */
+.services p {
+    color:#FFF;
+    padding:10px 10px 0;
+}
+
+/* Sprites */
+.icon-sprite {
+    font-family: 'icomoon';
+    display: inline-block;
+    font-size:50px;
+    color:#FFF;
+}
+
+.sprite-schedule::before{
+    content: "\e94e";
+}
+
+.sprite-resources::before{
+    content: "\e994";
+}
+
+.sprite-moreprojects::before{
+    content: "\ea10";
 }
 
 /* Projects Page */
@@ -153,3 +193,4 @@ Rescale pictures at certain sizes and try to make all pictures same ratio.
         width:1200px;
     }
 }
+
