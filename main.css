@@ -1,0 +1,155 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html,
+body {
+    height: 100%;
+    font-family: 'Roboto Slab', sans-serif, Arial;
+}
+
+h1, h2 {
+    color: #ffffff;
+    font-size: 50px;
+    
+}
+
+h2 {
+    font-size: 20px;
+}
+
+/* Navigation Bar */
+#navbar {
+    background-color: #F68026;
+}
+
+#navbar li a {
+    color: #ffffff;
+    font-size: 16px;
+    
+}
+
+#navbar li>a:hover,
+#navbar li>a:focus {
+    color: #F68026;
+    background-color: #005696;
+    text-decoration: underline;
+    font-weight:700;
+}
+
+/* Dropdown Navbar Menu */
+#projectsmenu {
+    background-color: #F68026;
+    left: 100%;
+    position: absolute;
+    top: 0;
+    visibility: visible;
+    margin-top: -1px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by its height */
+    margin: 0 auto -25px;
+    /* Pad bottom by footer height */
+    padding: 25px 0 0 0px;
+    background-color: #005696;
+}
+
+#splash {
+    height: 550px;
+    background-image: url('arduino.jpg');
+    background-size: cover;
+    background-position: center center;
+    max-height: 1000px;
+    border-radius: 0px;
+    text-align: center;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+    height: 25px;
+    background-color: #F68026;
+    text-align:center;
+    margin-bottom:0px;
+}
+
+/* Projects Page */
+
+#projects h2 {
+    font-size: 30px;
+    padding-bottom:15px;
+}
+
+#projects li>a {
+    font-size:20px;
+    color:#fff;
+    font-family: 'Roboto Slab', sans-serif, Arial;
+    font-style: italic;
+}
+
+/* Project Individual Page*/
+#outerProject {
+    border-radius:2px;
+    background-color: #fafdff;
+}
+
+#outerProject h1 {
+    font-size:40px;
+}
+
+#leftProject {
+    height:inherit;
+    color:#333;
+}
+
+#rightProjectHeader {
+    height:inherit;
+}
+
+#rightProjectHeader img {
+    width:600px;
+    height:449px;
+    border-radius: 5px;
+}
+
+#projectName {
+    border-bottom: 3px solid #333;
+    border-radius: 2px;
+}
+
+#outerProject h2 {
+    margin-top:0px;
+    margin-bottom:5px;
+    color:#333;
+    border-bottom:1px solid #333;
+}
+
+#leftProjectHeader p {
+    color:#333;
+    font-size:18px;
+}
+
+/*
+Notes: 
+
+Create function to do project pagination by finding headings w/ classes with certain names
+
+Rescale pictures at certain sizes and try to make all pictures same ratio.
+
+*/
+/* Responsive CSS */
+
+
+/*  Big Screen Width: 1200px */
+@media (min-width: 1200px){
+    .container {
+        width:1200px;
+    }
+}
