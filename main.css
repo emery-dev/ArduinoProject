@@ -137,10 +137,7 @@ h2 {
 .overview {
     border-radius:2px;
     background-color: #fafdff;
-}
-
-.overview h1 {
-    font-size:40px;
+    margin-bottom:40px;
 }
 
 .overview h2 {
@@ -151,6 +148,8 @@ h2 {
 }
 
 #projectName {
+    font-size:40px;
+    color:#333;
     border-bottom: 3px solid #333;
     border-radius: 2px;
 }
@@ -173,6 +172,7 @@ h2 {
     width:600px;
     height:449px;
     border-radius: 5px;
+    margin:25px;
 }
 
 /* Instruction set for projects */
