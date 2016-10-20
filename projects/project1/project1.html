@@ -8,7 +8,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:700,400,300' rel='stylesheet' type='text/css'>
     <!--MAKE SURE CORRECT FOLDER-->
-    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../../main.css">
 
     <title>GC Arduino Camp</title>
 
@@ -45,7 +45,7 @@
 
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class=""><a href="../index.html">Home</a></li>
+                        <li class=""><a href="../../index.html">Home</a></li>
                         <li><a href="#">Resources</a></li>
                         <li><a href="#">Schedule</a></li>
                         <li><a href="#">Glossary</a></li>
@@ -114,7 +114,7 @@
             <section class="description">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-8 col-md-offset-1 left-aside">
+                        <div class="col-md-7 col-md-offset-1 left-aside">
                             <section class="subsection" id="subsection-story">
                                 <h2 class="subsection-title">Story</h2>
                                 <div class="embed-responsive embed-responsive-16by9">
@@ -136,15 +136,33 @@
                                     </ul>
 
                                 </div>
-                                <!--Components list-->
+                                <!--End Components list-->
                             </section>
                             <!--End components subsection-->
-
+                            <section class="subsection" id="subsection-schematics">
+                                <h2 class="subsection-title">Schematics and Assembly</h2>
+                                <div class="schematics">
+                                    <h4>Figure 1 description</h4>
+                                    <img src="imgs/project1schematic1.jpg">
+                                    <h4>Figure 2 description</h4>
+                                    <img src="imgs/project1schematic2.jpg">
+                                    <h4>Figure 3 description</h4>
+                                    <img src="imgs/project1schematic3.jpg">
+                                </div>
+                            </section>
+                            <!--End Schematics subsection-->
                         </div>
                         <!--Left description-->
 
-                        <div class="col-md-4 col-md-offset-1 right-aside">
-
+                        <div class="col-md-3 col-md-offset-1 right-aside">
+                                <div class="affixable" data-spy="affix" data-offset-top="650" style>
+                                    <ul class="nav">
+                                        <li class="active"><a class="smooth-scroll" href="#subsection-story">Story</a></li>
+                                        <li class=""><a class="smooth-scroll" href="#subsection-components">Components</a></li>
+                                        <li class=""><a class="smooth-scroll" href="#subsection-schematics">Schematics</a></li>
+                                    </ul>
+                                </div>
+                           
                         </div>
                         <!--Right instruction jump-->
                     </div>
@@ -160,8 +178,5 @@
     <div id="footer">
         <h2>© 2016 Gettysburg College. All Rights Reserved</h2>
     </div>
-
-
 </body>
-
 </html>
