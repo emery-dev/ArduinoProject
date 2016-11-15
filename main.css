@@ -47,9 +47,8 @@ h2 {
 /* Dropdown Navbar Menu */
 #projectsmenu {
     background-color: #F68026;
-    left: 100%;
     position: absolute;
-    top: 0;
+    top: 100%;
     visibility: visible;
     margin-top: -1px;
 }
@@ -147,6 +146,8 @@ h2 {
     border-bottom:1px solid #333;
 }
 
+.overview
+
 #projectName {
     font-size:40px;
     color:#333;
@@ -187,7 +188,7 @@ h2 {
 }
 
 .description h2 {
-    color:#333;
+    color:#F68026;
     font-size:24px;
     text-decoration: underline
 }
@@ -202,10 +203,16 @@ h2 {
 .affix {
     top:70px;
 }
+
+/* http://nicolasgallagher.com/jump-links-and-viewport-positioning/ */
+.gototarget::before {
+    content:"";
+    display:block;
+    height:50px;
+    margin:-50px 0 0;
+}
 /*
 Notes: 
-
-Create function to do project pagination by finding headings w/ classes with certain names
 
 Rescale pictures at certain sizes and try to make all pictures same ratio.
 
@@ -219,5 +226,3 @@ Rescale pictures at certain sizes and try to make all pictures same ratio.
         width:1200px;
     }
 }
-
-
