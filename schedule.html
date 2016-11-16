@@ -8,8 +8,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:700,400,300' rel='stylesheet' type='text/css'>
+    
+    <link rel="stylesheet" href="timeline/reset.css">
+    <link rel="stylesheet" href="timeline/style.css">
     <link rel="stylesheet" href="main.css">
-
+    
     <title>GC Arduino Camp</title>
 
 </head>
@@ -58,39 +61,80 @@
                 <h1 id="currentDate"></h1>
             </div>
 
-            <div class="jumbotron" id="splash">
-                <h1>Gettysburg College Arduino Camp</h1>
-            </div>
-            <!--Jumbotron-->
-
-            <div class="services" id="services">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4 service service-schedule text-center">
-                            <span class="icon-sprite sprite-schedule"></span>
-                            <h2>Schedule</h2>
-                            <p>You can find out daily events, locations, and times on your schedule. Although things might change, the tentative schedule can be found here.</p>
-                            <a class="btn btn-primary" href="#" role="button">Schedule</a>
-                        </div>
-                        <!--Schedule-->
-                        <div class="col-md-4 service service-resources text-center">
-                            <span class="icon-sprite sprite-resources"></span>
-                            <h2>Components</h2>
-                            <p>You can find out daily events, locations, and times on your schedule. Although things might change, the tentative schedule can be found here.</p>
-                            <a class="btn btn-primary" href="#" role="button">Schedule</a>
-                        </div>
-                        <!--Resources-->
-                        <div class="col-md-4 service-moreprojects text-center">
-                            <span class="icon-sprite sprite-moreprojects"></span>
-                            <h2>More Projects</h2>
-                            <p>Finished all the projects we have?! Looking for more cool projects to do? We have a list of a few websites with more Arduino projects just for you.</p>
-                            <a class="btn btn-primary" href="#" role="button">More</a>
-                        </div>
+            <div class="container schedule">
+                <div class="row">
+                    <div class="text-center">
+                        <ul class="pagination">
+                            <li><a href="#">Monday</a></li>
+                            <li><a href="#">Tuesday</a></li>
+                            <li><a href="#">Wednesday</a></li>
+                            <li><a href="#">Thursday</a></li>
+                            <li><a href="#">Friday</a></li>
+                        </ul>
                     </div>
-                    <!--Services Row-->
                 </div>
-                <!--Services Container-->
+                <!--Row-->
             </div>
+            <!--Schedule top-->
+            <div class="container daily-schedule">
+                <div class="row">
+                    <section id="cd-timeline" class="cd-container">
+                        <div class="cd-timeline-block">
+                            <div class="cd-timeline-img cd-food">
+                            </div>
+                            <div class="cd-timeline-content">
+                                <h2>8-9am</h2>
+                                <p class="text-center">Breakfast</p>
+                            </div>
+                        </div>
+                        <div class="cd-timeline-block">
+                            <div class="cd-timeline-img cd-work">
+                            </div>
+                            <div class="cd-timeline-content">
+                                <h2>9-12pm</h2>
+                                <p class="text-center">Camp Session</p>
+                            </div>
+                        </div>
+                        <div class="cd-timeline-block">
+                            <div class="cd-timeline-img cd-food">
+                            </div>
+                            <div class="cd-timeline-content">
+                                <h2>12-1pm</h2>
+                                <p class="text-center">Lunch</p>
+                            </div>
+                        </div>
+                        <div class="cd-timeline-block">
+                            <div class="cd-timeline-img cd-work">
+                            </div>
+                            <div class="cd-timeline-content">
+                                <h2>1-4pm</h2>
+                                <p class="text-center">Camp Session</p>
+                            </div>
+                        </div>
+                        <div class="cd-timeline-block">
+                            <div class="cd-timeline-img cd-food">
+                            </div>
+                            <div class="cd-timeline-content">
+                                <h2>4-5:30pm</h2>
+                                <p class="text-center">Dinner</p>
+                            </div>
+                        </div>
+                        <div class="cd-timeline-block">
+                            <div class="cd-timeline-img cd-blue">
+                            </div>
+                            <div class="cd-timeline-content">
+                                <h2>5:30-8pm</h2>
+                                <p class="text-center">Free time</p>
+                            </div>
+                        </div>
+                    </section>
+                    <!--End timeline-->
+                </div>
+            </div>
+            <!--daily-schedule-->
+                 
+
+
         </div>
         <!--container init-->
     </div>
@@ -99,18 +143,18 @@
     <div id="footer">
         <h2>© 2016 Gettysburg College. All Rights Reserved</h2>
     </div>
-    
+
     <script>
         //jQuery hover menu
-        $(document).ready(function() {
-            $(".dropdown").hover(function() {
+        $(document).ready(function () {
+            $(".dropdown").hover(function () {
                 $(this.css("visibility", "visible"));
-            }, function() {
+            }, function () {
                 $(this.css("visibility", "hidden"));
             });
         });
     </script>
-    
+
     <script>
         //Date event
         var d = new Date();
@@ -132,5 +176,7 @@
         var dateString = month + " " + d.getDate() + ", " + d.getFullYear();
         document.getElementById("currentDate").innerHTML = dateString;
     </script>
+    <script src="timeline/timeline.js"></script>
 </body>
+
 </html>
