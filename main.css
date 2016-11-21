@@ -124,6 +124,15 @@ h2 {
     content: "\ea10";
 }
 
+.btn-primary{
+    margin-bottom:50px;
+}
+
+.service>.btn-primary:hover{
+    font-size:16px;
+    background-color:#F68026; 
+}
+
 /* Projects Page */
 
 #projects h2 {
@@ -151,8 +160,6 @@ h2 {
     color:#333;
     border-bottom:1px solid #333;
 }
-
-.overview
 
 #projectName {
     font-size:40px;
@@ -206,6 +213,10 @@ h2 {
 }
 
 /* Projects Affix Nav Bar*/
+.right-aside{
+    padding-top:30px;
+}
+
 .affix {
     top:70px;
 }
@@ -234,5 +245,23 @@ Rescale pictures at certain sizes and try to make all pictures same ratio.
 @media (min-width: 1200px){
     .container {
         width:1200px;
+    }
+}
+@media (max-width: 1200px){ 
+    #rightProjectOverview{
+        padding-top:60px;
+    }
+    #rightProjectOverview img{
+        width:90%;
+        height:auto;
+    } 
+}
+
+@media (max-width:992px){
+    #rightProjectOverview{
+        padding-top:0;
+    }
+    .right-aside{
+        visibility: hidden;
     }
 }

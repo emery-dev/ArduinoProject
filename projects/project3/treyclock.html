@@ -1,0 +1,597 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:700,400,300' rel='stylesheet' type='text/css'>
+    <!--MAKE SURE CORRECT FOLDER-->
+    <link rel="stylesheet" href="../prism.css">
+    <link rel="stylesheet" href="../../main.css">
+
+    <title>GC Arduino Camp</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <!-- Fixed navbar -->
+        <div id="navbar" class="navbar navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class=""><a href="../../index.html">Home</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="../../schedule.html">Schedule</a></li>
+                        <li><a href="#">Glossary</a></li>
+                        <li class="dropdown">
+                            <a href="../projects.html"> Projects <b class="caret"></b></a>
+                            <ul id="projectsmenu" class="dropdown-menu">
+                                <li><a href="../project1/project1.html">Project 1</a></li>
+                                <li><a href="piezobuzzer.html">Piezo Buzzer</a></li>
+                                <li><a href="treyclock.html">Clock/Timer/Stopwatch</a></li>
+                                <li><a href="#">Project 4</a></li>
+                                <li><a href="#">Project 5</a></li>
+                                <li><a href="#">Project 6</a></li>
+                            </ul>
+                        </li>
+                        <!--Projects-->
+                    </ul>
+                </div>
+                <!--/.navbar-collapse -->
+            </div>
+        </div>
+
+        <!-- Begin page content -->
+        <div class="container">
+            <div class="page-header">
+                <h1 id="currentDate"></h1>
+            </div>
+
+            <section class="overview">
+                <div class="container">
+                    <div id="leftProjectOverview" class="col-md-5 text-center">
+                        <h1 class="page-header" id="projectName">Clock, Stopwatch, Timer</h1>
+                        <h2 class="page-header">About</h2>
+                        <p class="text-left">This project will teach programming with time and introduce the LCD display to you. The clock, stopwatch, and timer functions can be useful in many situations, and have lots of room for creativity and experimentation.</p>
+                        <h2 class="page-header">Information</h2>
+                        <p class="text-left">Difficulty: <span style="color:#F68026">Medium</span></p>
+                        <p class="text-left">Estimated time: <span style="color:#005696">2 - 3 hours</span></p>
+                    </div>
+
+                    <div id="rightProjectOverview" class="col-md-7">
+                        <img src="imgs/treyclockOverview.png" class="img-fluid" alt="Project">
+                    </div>
+                </div>
+            </section>
+            <!--End jumbotron-->
+            <section class="description">
+                <div class="container">
+                    <div class="row">
+                        
+                        <div class="col-md-7 col-md-offset-1 left-aside">
+                            <section class="subsection gototarget" id="subsection-story">
+                                <h2 class="subsection-title">Story</h2>
+                                <p>The trey clock is a three setting clock that works similar to most modern digital watches. It has 1. a time clock 2. a countdown timer, and 3. a stopwatch. It uses push buttons to navigate between functions, and a piezzo buzzer to sound at the end of the timer. Time of the clock and timer can be set through manual input in the code.</p>
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/jqbTiVTwVwQ" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                                <!--End embed-->
+                            </section>
+                            <!--End story subsection-->
+                            
+                            <section class="subsection gototarget" id="subsection-components">
+                                <h2 class="subsection-title">Components</h2>
+                                <div class="components">
+                                    <p>The following hardware components were used in this project:</p>
+                                    <ul>
+                                        <li>1x Arduino Uno, or IEIK UNO</li>
+                                        <li>1x Breadboard</li>
+                                        <li>1x 16x2 LCD Display</li>
+                                        <li>1x Piezo Buzzer</li>
+                                        <li>3x Buttons</li>
+                                        <li>25-30x Male-to-Male wires</li>
+                                        <li>Arduino IDE</li>
+                                    </ul>
+                                </div>
+                                <!--End Components list-->
+                            </section>
+                            <!--End components subsection-->
+                            
+                            <section class="subsection gototarget" id="subsection-schematics">
+                                <h2 class="subsection-title">Schematics and Assembly</h2>
+                                <div class="schematics">
+                                    <h4></h4>
+                                    <img src="imgs/treyclockDiagram.png">
+                                </div>
+                            </section>
+                            <!--End Schematics subsection-->
+                            
+                            <section class="subsection gototarget" id="subsection-instructions">
+                                <h2 class="subsection-title">Instructions</h2>
+                                <h4><b>Setting Overview:</b></h4>
+                                <p>The program starts by setting up a counter for how many times the Mode button has been pressed, up to 3. Once it goes above 3, it resets to 1. The number that this counter is at determines the mode of the clock. From there, everything depends on what mode you're in.</p>
+
+                                <p>The <b>clock mode</b> is pretty simple in that it doesn't contain any complex surface code. Instead, it uses the Time.h library from Arduino Playground to keep the time. The time starts at whatever you set it to within the program, then counts seconds, minutes, and hours from there.</p>
+
+                                <p>The <b>timer mode</b> is a little more complex, as there are no special libraries used. It starts by defining a variable whose value is determined by the amount of time passed since the Start/Stop button has been pressed. From this variable, the LCD is able to count down seconds, minutes, and hours. At any point while the timer is running, the Start/Stop button can be pressed again to pause the time, and once more to resume. The function of the Start/Stop button is determined by a counter very similar to the Mode button counter, except it can only go from 1 to 2, rather than 3, because it only has two operations. At any point whille the timer is stopped, the Restart button can be pressed to reset the timer to the originally set time. Once the timer reaches zero, the piezzo buzzer beeps loudly to let the user know that their time is up. The Restart button shuts the buzzer off.</p>
+
+                                <p>The <b>stopwatch mode</b> works similarly to the timer function, except backwards. It's also a bit simpler because its starting time is always zero. It basically counts up in hundredths of seconds until it reaches 100, then goes back to zero, and the seconds go up by 1. Once the seconds reach 60, the minutes go up by one. Using the exact same Start/Stop button counter that's utilized in the timer mode, this button can begin, pause, and resume the stopwatch in the same fashion. Likewise, The Restart button will reset the time back to zero, but only if the time is paused.</p>
+                                
+                                <h4><b>Coding Breakdown:</b></h4>
+                                
+                                <pre><code class="language-clike">int tSeconds=10, tMinutes=0, hours=0;
+int centiseconds=0, sSeconds=0, sMinutes=0;</code></pre>
+                                <p>These lines initialize the timer and stopwatch at their respective beginning times. The stopwatch time shouldn't need to be anything other than 00:00.00, but the timer you will likely want to adjust; that can be done from here. Another important note is that seconds and minutes are differentiated between timer seconds and minutes and stopwatch seconds and minutes by calling them "tSecond" or "sSecond", for example, for the timer and stopwatch, respectively. It's not necessary to differentiate hours of centiseconds, though, since each is only used in one of the respective functions.</p>
+                                <pre><code class="language-clike">setTime(9,15,00,20,06,2017);</code></pre>
+                                <p>This line is what you will need to alter to set the clock time. The format is: Hour (in 24-hour time), Minute, Second, Day, Month, Year. The time set above is: 9:15 AM, June 20, 2017.</p>
+                                <pre><code class="language-clike">button1State = digitalRead(buttonPin1);
+  if(button1State != lastButton1State)
+  {
+    if(button1State = HIGH)
+    {
+      button1Counter++;
+      button2Counter = 1;
+      delay(200);
+    }
+  }
+  lastButton1State = button1State;
+  if(button1Counter > 3)
+  {
+    button1Counter = 1;
+  }</code></pre>
+                                <p>This section is the key to making the "Mode" button work. It counts how many times the button has been pressed, and gives that counter a value. If the counter goes above 3 (since we only need it to have three operations), it resets to 1. Similar lines of code follow these, which do the exact same thing but for button 2 (the "Start/Stop" button), and it only counts to 2, rather than 3.</p>
+                                <pre><code class="language-clike">switch(button1Counter)  //switch case is really nice for changing the clock between its three functions
+  {
+    case 1:  //the clock defaults to clockFunction()
+    lcd.clear();
+    lcd.setCursor(2, 1);
+    lcd.print(":");
+    lcd.setCursor(5, 1);
+    lcd.print(":");
+    clockFunction();
+    break;
+    case 2:  //if the "Mode" button is pressed, clock switches to timerFunction()
+    lcd.clear();
+    lcd.setCursor(2, 1);
+    lcd.print(":");
+    lcd.setCursor(5, 1);
+    lcd.print(":");
+    timerFunction();
+    break;
+    case 3:  //if "Mode" is pressed again, the clock switches once more to stopwatchFunction()
+    lcd.clear();
+    lcd.setCursor(2, 1);
+    lcd.print(":");
+    lcd.setCursor(5, 1);
+    lcd.print(".");
+    stopwatchFunction();
+    break;
+  }</code></pre>
+                                <p>This part of the code is what changes the mode to the correct one, based on how many times the button has been pushed. It defaults to the clock mode; when the button is pressed once, the button counter rises, and the mode changes to the timer. Then, if the button is pressed again, the counter rises once more to 3, and the mode changes to the stopwatch. I have the LCD clear and re-print the colons each time because otherwise the LCD will try to display 2+ things at once, and you wind up with a very confused Arduino.</p>
+                                <pre><code class="language-clike">if(button2Counter == 2)
+  {
+    static unsigned long lastTick = 0;
+    if (tSeconds > 0)
+    {
+      if (millis() - lastTick >= 1000)
+        {
+        lastTick = millis();
+        tSeconds--;
+        lcdOutput();
+      }
+     }
+    if (tMinutes > 0)
+    {
+      if (tSeconds <= 0)
+      {
+        tMinutes--;
+        tSeconds = 60;
+      }
+    }
+    if (hours > 0)
+    {
+      if (tMinutes <= 0)
+      {
+        hours--;
+        tMinutes = 60;
+      }
+    }
+  }</code></pre>
+                                <h4><i>Timer specifics:</i></h4>
+                                <p>There's a lot going on in the timerFunction() section of the code, so we will break each part down individually.</p>
+                                <pre><code class="language-clike">static unsigned long lastTick = 0;</code></pre>
+                                <p>This is just a fancy way to define the variable "LongTick". "Static" means that other functions don't acknowledge it, and "unsigned long" allows the variable to be a very large, positive number.</p>
+                                <pre><code class="language-clike">if (tSeconds > 0)
+    {
+      if (millis() - lastTick >= 1000)
+        {
+        lastTick = millis();
+        tSeconds--;
+        lcdOutput();
+      }
+     }</code></pre>
+                                <p>This part essentially tells the "tSeconds" variable to go down by one every 1000 milliseconds (1 second) since the button has been pressed.</p>
+                                <pre><code class="language-clike">if (tMinutes > 0)
+    {
+      if (tSeconds <= 0)
+      {
+        tMinutes--;
+        tSeconds = 60;
+      }
+    }
+    if (hours > 0)
+    {
+      if (tMinutes <= 0)
+      {
+        hours--;
+        tMinutes = 60;
+      }
+    }</code></pre>
+                                <p>The first part of this section tells the "tMinutes" variable to go down by one every time "tSeconds" reaches 60. The second part does the same thing but with "hours" and "tMinutes".</p>
+                                <pre><code class="language-clike">if(hours == 00 && tMinutes == 00 && tSeconds == 00)
+  {
+    button2Counter = 1;
+    while(digitalRead(buttonPin3) == HIGH)
+    {
+      lcd.setCursor(0, 1);
+      lcd.print("00:00:00");
+      digitalWrite(buzzerPin, HIGH);
+      delay(100);
+      digitalWrite(buzzerPin, LOW);
+      delay(100);
+    }
+    if(digitalRead(buttonPin3) == LOW)
+    {
+      hours = 0;
+      tMinutes = 0;
+      tSeconds = 10;
+      lcdOutput();
+    }
+  }</code></pre>
+                                <p>This part of the program gives tells the piezzo buzzer to go off when the timer is finished, and allows the Restart button to both shut off the buzzer, and reset the time. Note that this part of the code must be altered, along with the section at the beginning of the code, if you want to change the time displayed in the timer mode.</p>
+                                <pre><code class="language-clike">void printDigits(int digits)
+{
+  if(digits < 10) 
+  {
+    lcd.print("0");
+    lcd.print(digits);
+  }
+  else
+  {
+    lcd.print(digits);
+  }
+}</code></pre>
+                                <p>Any time the variable is a single digit (1-9), the LCD prints a "0" before the variable. Say there are exactly 5 minutes on the timer. With this function, the LCD will print "00:05:00", instead of "00:5 :00".</p>
+                                
+                            </section>
+                            <!--End instructions section-->
+                            
+                            <section class="subsection gototarget" id="subsection-code">
+                                <h2 class="subsection-title">Code</h2>
+                                <p>To include Time.h library, go to https://github.com/PaulStoffregen/Time and download the zip file. Then go to Sketch → Include library, and choose the zip file you just downloaded.</p>
+                                <p>To include LiquidCrystal.h, go to Sketch → Include library, and search “liquidCrystal” and choose LiquidCrystal Build-in. 
+                                </p>
+                                <div class="code">
+                                    <pre style="height:500px"><code class="language-clike">#include "LiquidCrystal.h"  //these are libraries that need to be downloaded from the Arduino Playground website (LiquidCrystal.h should come pre-downloaded with   
+#include "Time.h"              //the Arduino): http://playground.arduino.cc/Code/Time
+#include "Wire.h"
+
+int buttonPin1 = 4;
+int buttonPin2 = 3;
+int buttonPin3 = 2;
+int buzzerPin = 13;
+
+int tSeconds=10, tMinutes=0, hours=0;  //this line, along with another line in void timerFunction(), is where you can adjust the amount of time that is counted down in                                                                    //the timer function
+int centiseconds=0, sSeconds=0, sMinutes=0;
+
+int button1Counter = 0;  //this section initializes the button counters, which is how the buttons can have multiple operations within the same function - more info:       
+int button1State = 0;        // http://arduino.cc/en/Tutorial/ButtonStateChange
+int lastButton1State = 0;
+int button2Counter = 0;
+int button2State = 0;
+int lastButton2State = 0;
+
+LiquidCrystal lcd(7, 8, 9, 10, 11, 12);
+
+void setup()
+{
+  lcd.begin(16, 2);
+  setTime(9,15,00,20,06,2017);  // this is how you can set the time for the clock function (hour,minute,second,day,month,year)
+  pinMode(buttonPin1, INPUT_PULLUP);
+  pinMode(buttonPin2, INPUT_PULLUP);
+  pinMode(buttonPin3, INPUT_PULLUP);
+  pinMode(buzzerPin, OUTPUT);
+}
+
+void loop()
+{
+  button1State = digitalRead(buttonPin1);  //this section gives the "Mode" button the ability to have three seperate operations
+  if(button1State != lastButton1State)
+  {
+    if(button1State = HIGH)
+    {
+      button1Counter++;
+      button2Counter = 1;
+      delay(200);
+    }
+  }
+  lastButton1State = button1State;
+  if(button1Counter > 3)
+  {
+    button1Counter = 1;
+  }
+  button2State = digitalRead(buttonPin2);  //similarly, this section allows the "Start/Stop" button the ability to have two seperate functions
+  if(button2State != lastButton2State)
+  {
+    if(button2State = HIGH)
+    {
+      button2Counter++;
+      delay (200);
+    }
+  }
+  lastButton2State = button2State;
+  if(button2Counter > 2)
+  {
+    button2Counter = 1;
+  }
+
+  switch(button1Counter)  //switch case is really nice for changing the clock between its three functions
+  {
+    case 1:  //the clock defaults to clockFunction()
+    lcd.clear();
+    lcd.setCursor(2, 1);
+    lcd.print(":");
+    lcd.setCursor(5, 1);
+    lcd.print(":");
+    clockFunction();
+    break;
+    case 2:  //if the "Mode" button is pressed, clock switches to timerFunction()
+    lcd.clear();
+    lcd.setCursor(2, 1);
+    lcd.print(":");
+    lcd.setCursor(5, 1);
+    lcd.print(":");
+    timerFunction();
+    break;
+    case 3:  //if "Mode" is pressed again, the clock switches once more to stopwatchFunction()
+    lcd.clear();
+    lcd.setCursor(2, 1);
+    lcd.print(":");
+    lcd.setCursor(5, 1);
+    lcd.print(".");
+    stopwatchFunction();
+    break;
+  }
+}
+
+void clockFunction()  //this is the time clock function; it works using the Time.h library
+{
+  lcd.setCursor(0, 0);
+  printDigits(month());
+  lcd.setCursor(2, 0);
+  lcd.print("/");
+  lcd.setCursor(3, 0);
+  printDigits(day());
+  lcd.setCursor(5, 0);
+  lcd.print("/");
+  lcd.setCursor(6, 0);
+  lcd.print(year());
+  lcd.setCursor(0, 1);
+  lcd.print(hour());
+  lcd.setCursor(3, 1);
+  printDigits(minute());
+  lcd.setCursor(6, 1);
+  printDigits(second());
+  delay(100);
+}
+
+void timerFunction()  //the timer function was made with the help of this post: http://pastebin.com/f57045830
+{
+  if(button2Counter == 2)  //if "Start/Stop" is pressed, the timer counts down
+  {
+    static unsigned long lastTick = 0;
+    if (tSeconds > 0)
+    {
+      if (millis() - lastTick >= 1000)
+        {
+        lastTick = millis();
+        tSeconds--;
+        lcdOutput();
+      }
+     }
+    if (tMinutes > 0)
+    {
+      if (tSeconds <= 0)
+      {
+        tMinutes--;
+        tSeconds = 60;
+      }
+    }
+    if (hours > 0)
+    {
+      if (tMinutes <= 0)
+      {
+        hours--;
+        tMinutes = 60;
+      }
+    }
+  }
+  else  //if "Start/Stop" is unpressed or pressed a second time, display the current time, but don't count down
+  {
+    lcdOutput();
+  }
+  if(hours == 00 && tMinutes == 00 && tSeconds == 00)  //when timer ends, the alarm goes off
+  {
+    button2Counter = 1;
+    while(digitalRead(buttonPin3) == HIGH)  //the alarm will only go off until "Restart" is pressed
+    {
+      lcd.setCursor(0, 1);
+      lcd.print("00:00:00");
+      digitalWrite(buzzerPin, HIGH);
+      delay(100);
+      digitalWrite(buzzerPin, LOW);
+      delay(100);
+    }
+    if(digitalRead(buttonPin3) == LOW)  //when "Restart" is pressed, the timer resets
+    {
+      hours = 0;  //this part also 
+      tMinutes = 0;
+      tSeconds = 10;
+      lcdOutput();
+    }
+  }
+  if(digitalRead(buttonPin3) == LOW && button2Counter == 1)  //resets the timer when "Restart" button is pressed, as long as the timer is NOT running
+  {
+    hours = 0;  //this part also must be changed when the timer is altered, to match the initial time
+    tMinutes = 0;
+    tSeconds = 10;
+    delay(10);
+  }
+}
+
+void stopwatchFunction()
+{
+  lcd.setCursor(6, 1);
+  printDigits(centiseconds);
+  lcd.setCursor(3, 1);
+  printDigits(sSeconds);
+  lcd.setCursor(0, 1);
+  printDigits(sMinutes);
+  if(button2Counter == 2)  //if the "Start/Stop" button is pressed, the time begins running
+  {
+    delay(5);
+    centiseconds++;
+  }
+  if(digitalRead(buttonPin3) == LOW && button2Counter == 1)  //if the "Restart" button is pressed, as long as the timer is paused, the stopwatch resets to 00:00.00
+  {
+    centiseconds = 0;
+    sSeconds = 0;
+    sMinutes = 0;
+  } 
+  if(centiseconds == 100)
+  {
+    centiseconds = 0;
+    sSeconds++;
+  }
+  if(sSeconds == 60)
+  {
+    sSeconds = 0;
+    sMinutes++;
+  }
+}
+
+void lcdOutput()  //this is just used to display the timer on the LCD
+{
+  lcd.setCursor(0, 1);
+  printDigits(hours);
+  lcd.setCursor(3, 1);
+  printDigits(tMinutes);
+  lcd.setCursor(6, 1);
+  printDigits(tSeconds);
+  delay(100);
+}
+
+void printDigits(int digits)  //this void function is really useful; it adds a "0" to the beginning of the number, so that 5 minutes is displayed as "00:05:00", rather than "00:5 :00"
+{
+  if(digits < 10) 
+  {
+    lcd.print("0");
+    lcd.print(digits);
+  }
+  else
+  {
+    lcd.print(digits);
+  }
+}</code></pre>
+                                </div>
+                            </section>
+                            <!--End code section-->
+                        
+                        </div>
+                        <!--Left description-->
+
+                        <div class="col-md-3 col-md-offset-1 right-aside">
+                                <div class="affixable" data-spy="affix" data-offset-top="650" style>
+                                    <ul class="nav">
+                                        <li class="active"><a class="smooth-scroll" href="#subsection-story">Story</a></li>
+                                        <li class=""><a class="smooth-scroll" href="#subsection-components">Components</a></li>
+                                        <li class=""><a class="smooth-scroll" href="#subsection-schematics">Schematics</a></li>
+                                        <li class=""><a class="smooth-scroll" href="#subsection-instructions">Instructions</a></li>
+                                        <li class=""><a class="smooth-scroll" href="#subsection-code">Code</a></li>
+                                    </ul>
+                                </div>
+                           
+                        </div>
+                        <!--Right instruction jump-->
+                    </div>
+                    <!--End row-->
+                </div>
+            </section>
+            <!--End description-->
+        </div>
+        <!--container 1-->
+    </div>
+    <!--wrapper-->
+
+    <div id="footer">
+        <h2>© 2016 Gettysburg College. All Rights Reserved</h2>
+    </div>
+    
+    
+    <!--SCRIPTS-->
+    <script>
+        //jQuery hover menu
+        $(document).ready(function() {
+            $(".dropdown").hover(function() {
+                $(this.css("visibility", "visible"));
+            }, function() {
+                $(this.css("visibility", "hidden"));
+            });
+        });
+    </script>
+    <script type="text/javascript" src="../prism.js"></script>
+    <script>
+        //Date event
+        var d = new Date();
+        var month = new Array();
+        month[0] = "January";
+        month[1] = "February";
+        month[2] = "March";
+        month[3] = "April";
+        month[4] = "May";
+        month[5] = "June";
+        month[6] = "July";
+        month[7] = "August";
+        month[8] = "September";
+        month[9] = "October";
+        month[10] = "November";
+        month[11] = "December";
+        var currentMonth = month[d.getMonth()];
+        var month = currentMonth;
+        var dateString = month + " " + d.getDate() + ", " + d.getFullYear();
+        document.getElementById("currentDate").innerHTML = dateString;
+    </script>
+    <script>
+        //https://css-tricks.com/snippets/jquery/smooth-scrolling/
+        //Smooth Scroll jQuery
+        $('a[href*="#"]:not([href="#"])').click(function(){  
+        var target = $(this.hash);
+          $('html, body').animate({
+              scrollTop: target.offset().
+              top}, 1200);
+          return false;
+        });
+    </script>
+</body>
+</html>

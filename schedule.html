@@ -5,14 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="timeline/timeline.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:700,400,300' rel='stylesheet' type='text/css'>
-    
     <link rel="stylesheet" href="timeline/reset.css">
     <link rel="stylesheet" href="timeline/style.css">
     <link rel="stylesheet" href="main.css">
-    
     <title>GC Arduino Camp</title>
 
 </head>
@@ -42,7 +41,7 @@
                             <ul id="projectsmenu" class="dropdown-menu">
                                 <li><a href="projects/project1/project1.html">Project 1</a></li>
                                 <li><a href="projects/project2/piezobuzzer.html">Piezo Buzzer</a></li>
-                                <li><a href="#">Project 3</a></li>
+                                <li><a href="projects/project3/treyclock.html">Clock/Timer/Stopwatch</a></li>
                                 <li><a href="#">Project 4</a></li>
                                 <li><a href="#">Project 5</a></li>
                                 <li><a href="#">Project 6</a></li>
@@ -132,9 +131,6 @@
                 </div>
             </div>
             <!--daily-schedule-->
-                 
-
-
         </div>
         <!--container init-->
     </div>
@@ -154,7 +150,7 @@
             });
         });
     </script>
-
+    
     <script>
         //Date event
         var d = new Date();
@@ -176,7 +172,6 @@
         var dateString = month + " " + d.getDate() + ", " + d.getFullYear();
         document.getElementById("currentDate").innerHTML = dateString;
     </script>
-    <script src="timeline/timeline.js"></script>
 </body>
 
 </html>
