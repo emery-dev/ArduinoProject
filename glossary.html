@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:700,400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../main.css">
+    
+    <title>GC Arduino Camp</title>
+    
+</head>
+
+<body>
+    <div id="wrap">
+        <!-- Fixed navbar -->
+        <div id="navbar" class="navbar navbar-fixed-top">
+            <div class="container" >
+                <div class="navbar-header">
+                    <a type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                </div>
+                
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class=""><a href="index.html">Home</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="glossary.html">Glossary</a></li>
+                        <li class="dropdown">
+                            <a href="projects/projects.html" class="dropdown-toggle" data-toggle="dropdown"> Projects <b class="caret"></b></a>
+                            <ul id="projectsmenu" class="dropdown-menu">
+                                <li><a href="projects/project1/project1.html">Project 1</a></li>
+                                <li><a href="projects/project2/piezobuzzer.html">Piezo Buzzer</a></li>
+                                <li><a href="projects/project3/treyclock.html">Clock/Timer/Stopwatch</a></li>
+                                <li><a href="#">Project 4</a></li>
+                                <li><a href="#">Project 5</a></li>
+                                <li><a href="#">Project 6</a></li>
+                            </ul>
+                        </li>
+                        <!--Projects-->
+                    </ul>
+                </div>
+                <!--/.navbar-collapse -->
+            </div>
+        </div>
+
+        <!-- Begin page content -->
+        <div class="container">
+            <div class="page-header">
+                <h1 id="currentDate"></h1>
+            </div>
+            <div class="glossary-main row">
+                
+                <div class="glossary-item">
+                    <h2 class="glossary-item-title" href="#">Male-to-Male Wires</h2>
+                    <div class="glossary-item-description">
+                        <p>A male connector is a connector attached to a wire, cable, or piece of hardware, having one or more exposed, unshielded electrical terminal s, and constructed in such a way that it can be inserted snugly into a receptacle ( female connector ) to ensure a reliable physical and electrical connection . This type of connector is also known as a plug. A male connector can be recognized by the fact that, when it is disconnected or removed, the unshielded electrical prongs are plainly visible.</p>
+                    </div>
+                </div>
+                <!--glossary item-->
+                <div class="glossary-item">
+                    <h2 class="glossary-item-title" href="#">Breadboard</h2>
+                    <div class="glossary-item-description">
+                        <p>A thin plastic board used to hold electronic components (transistors, resistors, chips, etc.) that are wired together. Used to develop prototypes of electronic circuits, the boards can be reused for future jobs. Breadboards can also be used to create one-of-a-kind systems, although commercial products placed on printed circuit boards are typically much more robust and can handle greater frequencies.</p>
+                        <p>The breadboard contains spring clip contacts typically arranged in matrices with certain blocks of clips already wired together. The components and jump wires (assorted wire lengths with pins at both ends) are plugged into the clips to create the circuit patterns. The boards also typically include metal strips along the side that are used for common power rails and signal buses.</p>
+                    </div>
+                </div>
+                <!--glossary item-->
+                <div class="glossary-item">
+                    <h2 class="glossary-item-title" href="#">Female Wire</h2>
+                    <div class="glossary-item-description">
+                        <p>A female connector is a connector attached to a wire, cable, or piece of hardware, having one or more recessed holes with electrical terminals inside, and constructed in such a way that a plug with exposed conductors (male connector) can be inserted snugly into it to ensure a reliable physical and electrical connection . A female connector is also known as a jack, outlet, or receptacle. This type of connector can be recognized by the fact that, when it is disconnected or removed, the electrical conductors are not directly exposed, and therefore are not likely to make accidental contact with external objects or conductors.</p>
+                    </div>
+                </div>
+                <!--glossary item-->
+            </div>
+            <!--glossary-main-->
+        </div>
+        <!--container 1-->
+    </div>
+    <!--wrapper-->
+
+    <div id="footer">
+        <h2>© 2016 Gettysburg College. All Rights Reserved</h2>
+    </div>
+    
+    <script>
+        //Date event
+        var d = new Date();
+        var month = new Array();
+        month[0] = "January";
+        month[1] = "February";
+        month[2] = "March";
+        month[3] = "April";
+        month[4] = "May";
+        month[5] = "June";
+        month[6] = "July";
+        month[7] = "August";
+        month[8] = "September";
+        month[9] = "October";
+        month[10] = "November";
+        month[11] = "December";
+        var currentMonth = month[d.getMonth()];
+        var month = currentMonth;
+        var dateString = month + " " + d.getDate() + ", " + d.getFullYear();  
+        document.getElementById("currentDate").innerHTML = dateString;
+    </script>
+    
+    <script>
+    //jQuery hover show menu
+        $(document).ready(function(){
+            $(".dropdown").hover(function(){
+               $(this.css("visibility", "visible"));
+            }, function(){
+                $(this.css("visibility", "hidden"));
+            });
+        });
+    </script>
+    
+    <script>
+        //http://jsfiddle.net/roXon/BRvJA/1/
+    $('h2.glossary-item-title').each(function() {
+        var $this = $(this);
+        $this.next('.glossary-item-description').hide();
+
+        function toggleActive() { 
+            $('.active').toggleClass('active').next('.glossary-item-description').slideToggle(800);
+        }
+
+        $this.click(function() {
+            if (!$(this).hasClass('active') ) {
+                toggleActive();       // hide all and...
+            }
+            $this.toggleClass("active").next('.glossary-item-description').slideToggle(800);
+        });
+    });
+    </script>
+
+
+</body>
+</html>

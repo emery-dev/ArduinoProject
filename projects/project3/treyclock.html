@@ -7,6 +7,53 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:700,400,300' rel='stylesheet' type='text/css'>
+    <script>
+    // Cache selectors
+        var lastId,
+            topMenu = $("#top-menu"),
+            topMenuHeight = topMenu.outerHeight()+15,
+            // All list items
+            menuItems = topMenu.find("a"),
+            // Anchors corresponding to menu items
+            scrollItems = menuItems.map(function(){
+              var item = $($(this).attr("href"));
+              if (item.length) { return item; }
+            });
+
+        // Bind click handler to menu items
+        // so we can get a fancy scroll animation
+        menuItems.click(function(e){
+          var href = $(this).attr("href"),
+              offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+          $('html, body').stop().animate({ 
+              scrollTop: offsetTop
+          }, 300);
+          e.preventDefault();
+        });
+
+        // Bind to scroll
+        $(window).scroll(function(){
+           // Get container scroll position
+           var fromTop = $(this).scrollTop()+topMenuHeight;
+
+           // Get id of current scroll item
+           var cur = scrollItems.map(function(){
+             if ($(this).offset().top < fromTop)
+               return this;
+           });
+           // Get the id of the current element
+           cur = cur[cur.length-1];
+           var id = cur && cur.length ? cur[0].id : "";
+
+           if (lastId !== id) {
+               lastId = id;
+               // Set/remove active class
+               menuItems
+                 .parent().removeClass("active")
+                 .end().filter("[href='#"+id+"']").parent().addClass("active");
+           }                   
+        });
+    </script>
     <!--MAKE SURE CORRECT FOLDER-->
     <link rel="stylesheet" href="../prism.css">
     <link rel="stylesheet" href="../../main.css">
@@ -33,12 +80,12 @@
                         <li class=""><a href="../../index.html">Home</a></li>
                         <li><a href="#">Resources</a></li>
                         <li><a href="../../schedule.html">Schedule</a></li>
-                        <li><a href="#">Glossary</a></li>
+                        <li><a href="../../glossary.html">Glossary</a></li>
                         <li class="dropdown">
                             <a href="../projects.html"> Projects <b class="caret"></b></a>
                             <ul id="projectsmenu" class="dropdown-menu">
                                 <li><a href="../project1/project1.html">Project 1</a></li>
-                                <li><a href="piezobuzzer.html">Piezo Buzzer</a></li>
+                                <li><a href="../project2/piezobuzzer.html">Piezo Buzzer</a></li>
                                 <li><a href="treyclock.html">Clock/Timer/Stopwatch</a></li>
                                 <li><a href="#">Project 4</a></li>
                                 <li><a href="#">Project 5</a></li>
@@ -279,7 +326,7 @@ int centiseconds=0, sSeconds=0, sMinutes=0;</code></pre>
                             
                             <section class="subsection gototarget" id="subsection-code">
                                 <h2 class="subsection-title">Code</h2>
-                                <p>To include Time.h library, go to https://github.com/PaulStoffregen/Time and download the zip file. Then go to Sketch → Include library, and choose the zip file you just downloaded.</p>
+                                <p>Download the <a href="Time.zip" download><img src="../../fonts/zipIcon.svg" style="width:25px;height:25px;"> Time.zip</a> library.</p>
                                 <p>To include LiquidCrystal.h, go to Sketch → Include library, and search “liquidCrystal” and choose LiquidCrystal Build-in. 
                                 </p>
                                 <div class="code">
@@ -523,7 +570,7 @@ void printDigits(int digits)  //this void function is really useful; it adds a "
 
                         <div class="col-md-3 col-md-offset-1 right-aside">
                                 <div class="affixable" data-spy="affix" data-offset-top="650" style>
-                                    <ul class="nav">
+                                    <ul class="nav" id="top-menu">
                                         <li class="active"><a class="smooth-scroll" href="#subsection-story">Story</a></li>
                                         <li class=""><a class="smooth-scroll" href="#subsection-components">Components</a></li>
                                         <li class=""><a class="smooth-scroll" href="#subsection-schematics">Schematics</a></li>

@@ -213,12 +213,31 @@ h2 {
 }
 
 /* Projects Affix Nav Bar*/
-.right-aside{
-    padding-top:30px;
+.right-aside {
+    padding-top:40px;
+}
+
+.affixable>.nav>li>a{
+    color:#005696;
+    font-size:15px;
+    -webkit-transition: .25s all ease-out;
+    -moz-transition: .25s all ease-out;
+    transition: .25s all ease-out;
+}
+
+.affixable>.nav>li>a:hover,
+.affixable>.nav>li>a:focus{
+    background-color:rgba(246, 129, 40, 0.3);
+    text-decoration: underline;
+    font-weight: bold;
 }
 
 .affix {
     top:70px;
+}
+
+.affixable {
+    width:125px;
 }
 
 /* http://nicolasgallagher.com/jump-links-and-viewport-positioning/ */
@@ -228,6 +247,44 @@ h2 {
     height:50px;
     margin:-50px 0 0;
 }
+
+
+/* Glossary CSS */
+.glossary-main {
+    
+}
+
+.glossary-item {
+    position:relative; 
+    width:100%;
+    background:#FFF;
+    margin-bottom:10px;
+    border:1px solid transparent;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+h2.glossary-item-title {
+    color:#005696;
+    text-decoration:none;
+    outline:none;
+    cursor:pointer;
+    padding:10px;
+    margin:0px;
+}
+
+.glossary-item-description {
+    border-top:1px dotted #ccc;
+    margin:0px 10px 15px;
+    padding-top:10px;
+    background-color: #FFF;
+}
+
+
+
+
+
 
 
 /* Schedule CSS */
@@ -240,13 +297,14 @@ Rescale pictures at certain sizes and try to make all pictures same ratio.
 */
 /* Responsive CSS */
 
-
 /*  Big Screen Width: 1200px */
 @media (min-width: 1200px){
     .container {
         width:1200px;
     }
+    
 }
+/* Width < 1200px */
 @media (max-width: 1200px){ 
     #rightProjectOverview{
         padding-top:60px;
@@ -256,7 +314,7 @@ Rescale pictures at certain sizes and try to make all pictures same ratio.
         height:auto;
     } 
 }
-
+/* Width < 992px */
 @media (max-width:992px){
     #rightProjectOverview{
         padding-top:0;
@@ -264,4 +322,7 @@ Rescale pictures at certain sizes and try to make all pictures same ratio.
     .right-aside{
         visibility: hidden;
     }
+    .description > .container{
+        padding-right:6.5%;
+    }  
 }
