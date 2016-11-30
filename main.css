@@ -214,7 +214,7 @@ h2 {
 
 /* Projects Affix Nav Bar*/
 .right-aside {
-    padding-top:40px;
+    padding-top:60px;
 }
 
 .affixable>.nav>li>a{
@@ -233,7 +233,7 @@ h2 {
 }
 
 .affix {
-    top:70px;
+    top:60px;
 }
 
 .affixable {
@@ -250,22 +250,37 @@ h2 {
 
 
 /* Glossary CSS */
-.glossary-main {
-    
-}
 
-.glossary-item {
-    position:relative; 
-    width:100%;
-    background:#FFF;
-    margin-bottom:10px;
-    border:1px solid transparent;
+
+#searchInput {
+    background-image: url('fonts/searchIcon.png');
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 18px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom:15px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
 
-h2.glossary-item-title {
+.glossary-item {
+    position:relative; 
+    width:100%;
+    background-color:#FFF;
+    margin-bottom:10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.glossary-item:hover {
+    background-color:#e6e6e6;
+}
+
+.glossary-item-title {
     color:#005696;
     text-decoration:none;
     outline:none;
@@ -275,16 +290,15 @@ h2.glossary-item-title {
 }
 
 .glossary-item-description {
-    border-top:1px dotted #ccc;
+    border-top:1px dotted #005696;
     margin:0px 10px 15px;
-    padding-top:10px;
-    background-color: #FFF;
+    padding:10px 5px 10px 5px;
+    background-color:#FFF;
 }
 
-
-
-
-
+.glossary-item-description:hover {
+    background-color:#e6e6e6;
+}
 
 
 /* Schedule CSS */

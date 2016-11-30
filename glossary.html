@@ -39,7 +39,7 @@
                                 <li><a href="projects/project1/project1.html">Project 1</a></li>
                                 <li><a href="projects/project2/piezobuzzer.html">Piezo Buzzer</a></li>
                                 <li><a href="projects/project3/treyclock.html">Clock/Timer/Stopwatch</a></li>
-                                <li><a href="#">Project 4</a></li>
+                                <li><a href="projects/project4/lightupsensor.html">Light Up Sensor</a></li>
                                 <li><a href="#">Project 5</a></li>
                                 <li><a href="#">Project 6</a></li>
                             </ul>
@@ -57,7 +57,7 @@
                 <h1 id="currentDate"></h1>
             </div>
             <div class="glossary-main row">
-                
+                <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search for components..">
                 <div class="glossary-item">
                     <h2 class="glossary-item-title" href="#">Male-to-Male Wires</h2>
                     <div class="glossary-item-description">
@@ -141,6 +141,27 @@
             $this.toggleClass("active").next('.glossary-item-description').slideToggle(800);
         });
     });
+    </script>
+    
+    <script>
+    function searchFunction() {
+        // Adapted from http://www.w3schools.com/howto/howto_js_filter_table.asp
+        var input, filter, components, component, i;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        components = document.getElementsByClassName("glossary-item-title");
+        
+        for (i = 0; i < components.length; i++) {
+            component = components[i];
+            if (component) {
+                if (component.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    components[i].style.display = "";
+                } else {
+                    components[i].style.display = "none";
+                }
+            } 
+        }
+    }
     </script>
 
 

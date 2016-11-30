@@ -32,14 +32,14 @@
                         <li class=""><a href="../../index.html">Home</a></li>
                         <li><a href="#">Resources</a></li>
                         <li><a href="../../schedule.html">Schedule</a></li>
-                        <li><a href="#">Glossary</a></li>
+                        <li><a href="../../glossary.html">Glossary</a></li>
                         <li class="dropdown">
                             <a href="../projects.html"> Projects <b class="caret"></b></a>
                             <ul id="projectsmenu" class="dropdown-menu">
                                 <li><a href="../project1/project1.html">Project 1</a></li>
-                                <li><a href="piezobuzzer.html">Piezo Buzzer</a></li>
-                                <li><a href="">Project 3</a></li>
-                                <li><a href="#">Project 4</a></li>
+                                <li><a href="../project2/piezobuzzer.html">Piezo Buzzer</a></li>
+                                <li><a href="../project3/treyclock.html">Clock/Timer/Stopwatch</a></li>
+                                <li><a href="lightupsensor.html">Light Up Sensor</a></li>
                                 <li><a href="#">Project 5</a></li>
                                 <li><a href="#">Project 6</a></li>
                             </ul>
@@ -60,16 +60,16 @@
             <section class="overview">
                 <div class="container">
                     <div id="leftProjectOverview" class="col-md-5 text-center">
-                        <h1 class="page-header" id="projectName">ADD PROJECT TITLE</h1>
+                        <h1 class="page-header" id="projectName">Light Up Sensor</h1>
                         <h2 class="page-header">About</h2>
-                        <p class="text-left">ADD ABOUT</p>
+                        <p class="text-left">This project introduces the ultrasonic distance measuring sensor. You can use this sensor in many ways but this project will establish changing colors when the sensor reads input.</p>
                         <h2 class="page-header">Information</h2>
-                        <p class="text-left">Difficulty: <span style="color:#F68026">ADD DIFFICULTY</span></p>
-                        <p class="text-left">Estimated time: <span style="color:#005696">ADD TIME</span></p>
+                        <p class="text-left">Difficulty: <span style="color:#F68026">Easy</span></p>
+                        <p class="text-left">Estimated time: <span style="color:#005696">1 hour</span></p>
                     </div>
 
                     <div id="rightProjectOverview" class="col-md-7">
-                        <img src="ADD IMAGE" class="img-fluid" alt="Project">
+                        <img src="imgs/lightupsensorOverview.jpg" class="img-fluid" alt="Project">
                     </div>
                 </div>
             </section>
@@ -81,9 +81,9 @@
                         <div class="col-md-7 col-md-offset-1 left-aside">
                             <section class="subsection gototarget" id="subsection-story">
                                 <h2 class="subsection-title">Story</h2>
-                                <p>ADD STORY.</p>
+                                <p>Utilizing a distance measurer can be useful for many Arduino projects. The main intention of this project is to help you understand how to use the ultrasonic distance sensor, and make you think about other projects that it might be implemented in. A few examples could be: a cookie-jar alarm with a buzzer, a distance measurer on a remote-controlled car, or even a door alarm. Below is a simple video of how the sensor should light up when input is read.</p>
                                 <div class="embed-responsive embed-responsive-16by9">
-                                    ADD IFRAME YOUTUBE VIDEO
+                                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/4NcAH2PneAE" frameborder="0" allowfullscreen></iframe>
                                 </div>
                                 <!--End embed-->
                             </section>
@@ -94,7 +94,12 @@
                                 <div class="components">
                                     <p>The following hardware components were used in this project:</p>
                                     <ul>
-                                        <li>COMPONENTS</li>
+                                        <li>1x Arduino Uno, or IEIK UNO</li>
+                                        <li>1x Breadboard</li>
+                                        <li>1x HC-SR04 Ultrasonic Distance Sensor</li>
+                                        <li>2x Colored LED (any color)</li>
+                                        <li>2x Resistors (560 ohm preferred, but any green, blue, brown, or gold resistor will do)</li>
+                                        <li>8x Male-to-Male Wires</li>
                                     </ul>
                                 </div>
                                 <!--End Components list-->
@@ -104,22 +109,78 @@
                             <section class="subsection gototarget" id="subsection-schematics">
                                 <h2 class="subsection-title">Schematics and Assembly</h2>
                                 <div class="schematics">
-                                    <h4></h4>
-                                    <img src="ENTER HERE">
+                                    <h4>Overview</h4>
+                                    <img src="imgs/lightupsensorDiagram1.jpg">
+                                    <h4>Assembly</h4>
+                                    <img src="imgs/lightupsensorDiagram2.jpg">
                                 </div>
                             </section>
                             <!--End Schematics subsection-->
                             
                             <section class="subsection gototarget" id="subsection-instructions">
                                 <h2 class="subsection-title">Instructions</h2>
-                            
+                                <h4><b>Hardware Setup:</b></h4>
+                                <p>Initialize the breadboard by setting up the positive and negative current flows. We connect the positive (+) to the "5v" and the negative (-) to the "GND". Continue setting up the breadboard and Arduino following the schematics above.</p>
+                                <h4><b>Coding Breakdown:</b></h4>
+                                Setting up the Arduino is quite simple:
+                                <pre><code class="language-clike">void setup() {
+  Serial.begin (9600);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(led, OUTPUT);
+  pinMode(led2, OUTPUT);
+}</code></pre>
+                                <p>We define the pins as necessary to read the input from the ultrasonic distance sensor and also tell the Arduino how to handle the output (by lighting up the LEDs).</p>
+                                <pre><code class="language-clike">duration = pulseIn(echoPin, HIGH);
+  distance = (duration/2) / 29.1;
+  if (distance < 4) {  
+    digitalWrite(led,HIGH);
+  digitalWrite(led2,LOW);</code></pre>
+                                <p>This is where the light change occurs. Calling <code>pulseIn(echoPin, HIGH)</code> returns the input from the sensor. We then check if the distance is close enough <code>if (distance < 4)</code> and then change the LED colors. See below for the full code implementation.</p>
+                                
                             </section>
                             <!--End instructions section-->
                             
                             <section class="subsection gototarget" id="subsection-code">
                                 <h2 class="subsection-title">Code</h2>
                                 <div class="code">
-                                    <pre style="height:500px"><code class="language-clike"></code></pre>
+                                    <pre style="height:500px; margin-bottom:25px;"><code class="language-clike">#define trigPin 13
+#define echoPin 12
+#define led 11
+#define led2 10
+
+void setup() {
+  Serial.begin (9600);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(led, OUTPUT);
+  pinMode(led2, OUTPUT);
+}
+
+void loop() {
+  long duration, distance;
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration = pulseIn(echoPin, HIGH);
+  distance = (duration/2) / 29.1;
+    if (distance < 4) {
+    digitalWrite(led,HIGH); 
+    digitalWrite(led2,LOW);
+    } else {
+    digitalWrite(led,LOW);
+    digitalWrite(led2,HIGH);
+  }
+  if (distance >= 200 || distance <= 0){
+    Serial.println("Out of range");
+  } else {
+    Serial.print(distance);
+    Serial.println(" cm");
+  }
+  delay(500);
+}</code></pre>
                                 </div>
                             </section>
                             <!--End code section-->
