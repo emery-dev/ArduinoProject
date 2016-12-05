@@ -50,6 +50,10 @@ h2 {
     font-weight:700;
 }
 
+.container>.navbar-header {
+    height:50px;
+}
+
 /* Dropdown Navbar Menu */
 #projectsmenu {
     background-color: #F68026;
@@ -90,12 +94,17 @@ h2 {
 /* Home Page */ 
 #splash {
     height: 550px;
-    background-image: url('arduino.jpg');
+    background-image: url('arduino1.png');
     background-size: cover;
     background-position: center center;
     max-height: 1000px;
     border-radius: 0px;
     text-align: center;
+    padding-top:20px;
+}
+
+#splash.jumbotron>h1 {
+    color:#005696;
 }
 
 /* Services */
@@ -207,7 +216,7 @@ h2 {
 }
 
 .schematics > img {
-    width:540px;
+    width:100%;
     height:auto;
     margin:auto 0;
 }
@@ -251,7 +260,6 @@ h2 {
 
 /* Glossary CSS */
 
-
 #searchInput {
     background-image: url('fonts/searchIcon.png');
     background-position: 10px 12px;
@@ -276,10 +284,6 @@ h2 {
     border-radius: 5px;
 }
 
-.glossary-item:hover {
-    background-color:#e6e6e6;
-}
-
 .glossary-item-title {
     color:#005696;
     text-decoration:none;
@@ -296,21 +300,18 @@ h2 {
     background-color:#FFF;
 }
 
-.glossary-item-description:hover {
-    background-color:#e6e6e6;
+.glossaryImg {
+    width:250px;
+    height:100%;
 }
-
 
 /* Schedule CSS */
 
-/*
-Notes: 
+.pagination>li>a:hover {
+    color: #F68026;
+}
 
-Rescale pictures at certain sizes and try to make all pictures same ratio.
-
-*/
 /* Responsive CSS */
-
 /*  Big Screen Width: 1200px */
 @media (min-width: 1200px){
     .container {
@@ -338,5 +339,54 @@ Rescale pictures at certain sizes and try to make all pictures same ratio.
     }
     .description > .container{
         padding-right:6.5%;
-    }  
+    }
+    #leftProjectOverview {
+        padding-right:50px;
+    }
+    .glossaryImg {
+        width:100%;
+    }
+    .service {
+        margin:0px 125px 15px 125px;
+    }
+}
+
+/* Width < 768px */
+@media (max-width:768px){
+    #splash {
+        padding-top:5px;
+    }
+    .page-header {
+        margin-top:80px;
+    }
+    #leftProjectOverview{
+        padding-right:25px;
+    }
+    .navbar-toggle::before{
+        font-family: 'icomoon';
+        content: "\e9bd";
+        font-size: 30px;
+        color: #FFF;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
+    button.navbar-toggle.collapsed{
+        top: 5px;
+        margin-bottom: 0px;
+    }
+    ul#projectsmenu.dropdown-menu{
+        display: none;
+    }
+    b.caret{
+        display: none;
+    }
+    #searchInput{
+        margin-left: 15px;
+        width:95%;
+    }
+    .glossary-item{
+        margin:0 0 10px 15px; 
+        width:95%;
+    }
+
 }

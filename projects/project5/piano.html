@@ -1,0 +1,550 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:700,400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../prism.css">
+    <link rel="stylesheet" href="../../main.css">
+
+    <title>GC Arduino Camp</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <!-- Fixed navbar -->
+        <div id="navbar" class="navbar navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class=""><a href="../../index.html">Home</a></li>
+                        <li class="dropdown">
+                            <a href="../projects.html"> Projects <b class="caret"></b></a>
+                            <ul id="projectsmenu" class="dropdown-menu">
+                                <li><a href="../project1/project1.html">Project 1</a></li>
+                                <li><a href="../project2/piezobuzzer.html">Piezo Buzzer</a></li>
+                                <li><a href="../project3/treyclock.html">Clock/Timer/Stopwatch</a></li>
+                                <li><a href="../project4/lightupsensor.html">Light Up Sensor</a></li>
+                                <li><a href="piano.html">Piano</a></li>
+                                <li><a href="#">Project 6</a></li>
+                            </ul>
+                        </li>
+                        <!--Projects-->
+                        <li><a href="../../schedule/monday.html">Schedule</a></li>
+                        <li><a href="../../glossary.html">Glossary</a></li>
+                    </ul>
+                </div>
+                <!--/.navbar-collapse -->
+            </div>
+        </div>
+
+        <!-- Begin page content -->
+        <div class="container">
+            <div class="page-header">
+                <h1 id="currentDate"></h1>
+            </div>
+
+            <section class="overview">
+                <div class="container">
+                    <div id="leftProjectOverview" class="col-md-5 text-center">
+                        <h1 class="page-header" id="projectName">Piano</h1>
+                        <h2 class="page-header">About</h2>
+                        <p class="text-left">This project will teach advance Arduino tone programing and the control of an LCD. The piano is a fun project that will create a usable small scale electronic piano with the ability to play and add your own preset songs.</p>
+                        <h2 class="page-header">Information</h2>
+                        <p class="text-left">Difficulty: <span style="color:#F68026">Medium</span></p>
+                        <p class="text-left">Estimated time: <span style="color:#005696">3.5-4 hours</span></p>
+                    </div>
+
+                    <div id="rightProjectOverview" class="col-md-7">
+                        <img src="imgs/pianoOverview.jpg" class="img-fluid" alt="Project">
+                    </div>
+                </div>
+            </section>
+            <!--End jumbotron-->
+            <section class="description">
+                <div class="container">
+                    <div class="row">
+                        
+                        <div class="col-md-7 col-md-offset-1 left-aside">
+                            <section class="subsection gototarget" id="subsection-story">
+                                <h2 class="subsection-title">Story</h2>
+                                <p>This project is an electronic keyboard with 7 piano keys, programmed to Middle B/A/G/F/E/D/C, and an 8th button used to access a menu of preset songs. It will introduce you to buttons, resistors, and the LED components.</p>
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe width="638" height="365" src="https://www.youtube.com/embed/sPCXnYc_fTM" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                                <!--End embed-->
+                            </section>
+                            <!--End story subsection-->
+                            
+                            <section class="subsection gototarget" id="subsection-components">
+                                <h2 class="subsection-title">Components</h2>
+                                <div class="components">
+                                    <p>The following hardware components were used in this project:</p>
+                                    <ul>
+                                        <li>1x Arduino Uno</li>
+                                        <li>1x Adafruit Standard LCD</li>
+                                        <li>2x Breadboard</li>
+                                        <li>1x LED light</li>
+                                        <li>1x Piezo buzzer</li>
+                                        <li>4x 220 ohm resistor</li>
+                                        <li>1x 560 ohm resistor</li>
+                                        <li>1x 1k ohm resistor</li>
+                                        <li>1x 4.7k resistor</li>
+                                        <li>1x 1M ohm resistor</li>
+                                        <li>3x 10k ohm resistor</li>
+                                        <li>1x 10k Potentiometer</li>
+                                        <li>8x Tactile button switch</li>
+                                        <li>Wiring</li>
+                                    </ul>
+                                </div>
+                                <!--End Components list-->
+                            </section>
+                            <!--End components subsection-->
+                            
+                            <section class="subsection gototarget" id="subsection-schematics">
+                                <h2 class="subsection-title">Schematics and Assembly</h2>
+                                <div class="schematics">
+                                    <h4></h4>
+                                    <img src="imgs/pianoDiagram1.jpg">
+                                    <img src="imgs/pianoDiagram2.jpg">
+                                </div>
+                            </section>
+                            <!--End Schematics subsection-->
+                            
+                            <section class="subsection gototarget" id="subsection-instructions">
+                                <h2 class="subsection-title">Instructions</h2>
+                                <h4><b>Hardware:</b></h4>
+                                <p>The piano key switches were connected using a resistor ladder. The resistors are placed in sequential order, connecting each switch to power. For this project use (in ohms) 1M, 10k, 4.7K, 1K, 560, and 220. The first piano switch (on the left) is connected to power, and also to the next switch in the circuit. The second switch is connected to the smallest resistor, and each switch after that connects to the next largest resistor in the series. The last switch grounds the connection via a 10k ohm resistor and also connects all 7 switches to the "analog in" pin A0 on the Arduino. The main sketch defines which music note frequencies are associated with each piano key. For this project, we used C4, D4, E4, F4, G4, A4, and B4, with C4 being the leftmost switch. Change the frequency values, or add additional switches to fully customize your own project!</p>
+                                <h4><b>The LCD Screen</b></h4>
+                                <p>Connect the LCD pins according to the circuit diagram below. Connect LCD pin 3 to the Potentiometer for contrast control of the screen. The outside pins of the Potentiometer are connected to power and ground to complete this circuit. LCD pin 15 is connected to power via a 220 ohm resistor. If any of these pins change on your own project, update the code accordingly.</p>
+                                <h4><b>The Menu Switch</b></h4>
+                                <p>Connect the menu switch to power, and ground it through a 10K ohm resistor. This switch should also be connected to pin 7 on the Arduino so you can control it via coding.</p>
+                                <h4><b>The Piezo Buzzer</b></h4>
+                                <p>To integrate the Piezo Buzzer, simply connect one end to the Arduino pin 8, and the other side to ground via a 220 ohm resistor.  The "tone" function in the code will look for this pin in order to play the note called</p>
+                                
+                                <h4><b>Coding:</b></h4>
+                                <p>Open Up the Arduino IDE software on your computer. You will need to control a Piezo buzzer in this project similar to the Piezo Buzzer and Alarm Sensor projects</p>
+                                <p>The sketch begins by importing the "LiquidCrystal.h" and "pitches.h" libraries so we can reference various items from them later on in the code.
+                                Next, the code is set up by defining a name for the menu switch, determining which pins are inputs vs. outputs, and setting the frequency values for each of the 7 piano keys.
+                                A new tab was created for each individual song in an effort to keep my code somewhat organized and easier to understand, and to expand on later.  If you'd like to delete or add more songs, just make sure to change the code in the main "Electronic Keyboard" sketch as well.</p>
+                                <p>The keyboard begins with the LED turned off, and all of the piano keys active
+                                Once the loop detects that the menu button has been pushed, it will disable the piano keys and turn the LED on to indicate you are in "menu mode".</p>
+                                <p>Push the menu button to cycle through the present songs, and push any of the piano keys to start playing the song displayed on the LCD screen
+                                The LCD screen will show which song is currently playing, then return to the same point in the menu once the song has finished playing.  From there, you can either replay or continue in the list of available songs.
+                                Double-clicking the menu button will restart the menu from the beginning.</p>
+                                <p>To return to using the piano keys, cycle through the remainder of songs in the menu.  Once the LCD screen in blank, and the LED is off, the piano keys will work again.</p>
+                            </section>
+                            <!--End instructions section-->
+                            
+                            <section class="subsection gototarget" id="subsection-code">
+                                <h2 class="subsection-title">Code</h2>
+                                <div class="code">
+                                    <pre style="height:500px; margin-bottom:25px;"><code class="language-clike">// LCD Screen, Switch & LED Setup
+#include "LiquidCrystal.h"
+#include "pitches.h"
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+const int LCDswitchPin = 7; // define menu/LCD switch name
+int LCDswitchState = 0; // set menu/LCD switch state to off/low
+int prevLCDswitchState = 0;
+int blueLED = 6;
+int LCDswitchCounter = 0;   // counter for the number of menu button presses 
+    // (this code counts the menu button pushes, displays them on your computer, 
+    // and starts from zero after ending "menu mode". currently has no other effect 
+    // on this sketch, but is a good starting point for expanding on the project with 
+    // new features later    
+
+// Music Note Keys - Set frequency values
+int notes[] = {262, 294, 330, 349, 392, 440, 494}; // Set notes C, D, E, F, G, A, B
+
+void setup() {
+  Serial.begin(9600);
+  lcd.begin(16, 2);
+  pinMode(LCDswitchPin, INPUT);
+  pinMode(blueLED, OUTPUT);
+  digitalWrite(blueLED, LOW); // LED stays off while piano keys are on
+}
+
+void loop() {
+  LCDswitchState = digitalRead(LCDswitchPin);
+  int keyVal = analogRead(A0);
+  Serial.println(keyVal);
+  lcd.noDisplay();
+  digitalWrite(blueLED, LOW); // Turn LED back off every time main loop starts
+
+// ************** START "LCDstart" WHEN MENU BUTTON IS PUSHED ***********
+
+    if (LCDswitchState == HIGH)  {
+      digitalWrite(blueLED, HIGH); // Turn LED on to show piano keys are disabled and device is in "menu mode"
+      lcd.display();
+      lcd.clear();
+      LCDstart();
+      }
+  
+////// KEYBOARD NOTES & FREQUENCY STATEMENTS //////
+// Use the resistor ladder you created to change the voltage of each piano key button
+// 220 ohm = C5 // 560 ohm = D5 // 1K ohm = E5 // etc...
+  if(keyVal == 1023)  {
+    tone(8, notes[0]); // C
+    } // end if
+    
+        else if(keyVal >= 990 & keyVal <=1010)  {
+          tone(8, notes[1]); // D
+          } // end else if
+    
+        else if(keyVal >= 960 && keyVal <= 980)  {
+          tone(8, notes[2]); // E
+          } // end else if
+        
+        else if(keyVal >= 900 && keyVal <= 945)  {
+          tone(8, notes[3]); // F
+          } // end else if
+        
+        else if(keyVal >= 650 && keyVal <= 710)  {
+          tone(8, notes[4]); // G
+          } // end else if
+        
+        else if(keyVal >= 500 && keyVal <= 550)  {
+          tone(8, notes[5]); // A
+          } // end else if
+        
+        else if(keyVal >= 5 && keyVal <= 10)  {
+          tone(8, notes[6]); // B
+          } // end else if
+        
+        else if(keyVal <= 1)  { // if no switch is pressed, do not play tone
+          noTone(8);
+          } // end else if
+
+} //end frequency tone loop
+
+/////////////////////////////////////////////////////
+void LCDstart()  {
+  int keyVal = analogRead(A0);  
+  LCDswitchState = digitalRead(LCDswitchPin); // check state of menu button
+
+    while (LCDswitchState == LOW)  { // continue loop while menu button isn't pressed
+      LCDswitchState = digitalRead(LCDswitchPin); // check state of menu button every time loop starts 
+      
+      //************* START SONG 1 TITLE LOOP ********************
+      if (LCDswitchState == HIGH)  { // if menu button is pressed, then...
+        LCDswitchCounter++; // set button count to 1
+        Serial.print("number of button pushes:  ");
+        Serial.println(LCDswitchCounter);
+        delay(300); // min. time until counts adds 1 more
+
+        Song1title();
+        lcd.clear();
+        break;
+        }
+
+      //************* ELSE SHOW MENU ****************
+      else   {  // if menu button is not pressed, then...
+        LCDswitchCounter=0; // set menu button count to 0
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("WHICH SONG WOULD");
+        lcd.setCursor(0, 1);
+        lcd.print("YOU LIKE TO PLAY");
+        delay(50); // return to main 
+        }
+      } // end while
+  } // end LCDstart loop
+  
+// ************* SONG 1 LOOP STARTS HERE **************  
+void Song1title()  {
+  int keyVal = analogRead(A0);
+  LCDswitchState = digitalRead(LCDswitchPin); // check state of menu button again
+  
+  while (LCDswitchState == LOW)  { // continue loop while menu button isn't pressed  
+    LCDswitchState = digitalRead(LCDswitchPin); // check state of menu button again 
+
+      //************* START SONG 2 TITLE LOOP ********************
+      if (LCDswitchState == HIGH)  { // if menu button is pressed, then...
+        LCDswitchCounter++; // set button count to 2
+        Serial.print("number of button pushes:  ");
+        Serial.println(LCDswitchCounter);
+        delay(300); // min. time until counts adds 1 more
+        Song2title();
+        lcd.clear();
+        break;
+        }
+        
+      else  { // if menu button is not pressed   
+        int keyVal = analogRead(A0);
+        Serial.println(keyVal); 
+         
+         if(keyVal >= 2)  {
+           digitalWrite(blueLED, LOW);
+           Song1();
+           break;
+           } // end if
+        
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("SUPER MARIO BROS");
+        lcd.setCursor(0, 1);
+        lcd.print("   THEME SONG");
+        delay(50);
+        }
+    } // end while song 1 -> 2
+        
+} // end Song1title loop
+
+// ************* SONG 2 LOOP STARTS HERE **************  
+void Song2title()  {
+  int keyVal = analogRead(A0);
+  LCDswitchState = digitalRead(LCDswitchPin); // check state of menu button again
+  
+  while (LCDswitchState == LOW)  { // continue loop while menu button isn't pressed  
+    LCDswitchState = digitalRead(LCDswitchPin); // check state of menu button again 
+
+      //************* START SONG 3 TITLE LOOP ********************
+      if (LCDswitchState == HIGH)  { // if menu button is pressed, then...
+        LCDswitchCounter++; // set button count to 3
+        Serial.print("number of button pushes:  ");
+        Serial.println(LCDswitchCounter);
+        delay(300); // min. time until counts adds 1 more
+
+        Song3title();
+        lcd.clear();
+        break;
+        }
+        
+      else  { // if menu button is not pressed
+        int keyVal = analogRead(A0);
+        Serial.println(keyVal); 
+         
+         if(keyVal >= 2)  {
+           digitalWrite(blueLED, LOW);
+           Song2();
+           break;
+           } // end if
+           
+          lcd.clear();
+          lcd.setCursor(0, 0);
+          lcd.print("SUPER MARIO BROS");
+          lcd.setCursor(0, 1);
+          lcd.print("   UNDERWORLD");
+          delay(50);
+          }
+        
+        } // end while song 2 -> 3
+        
+} // end Song2title loop
+
+// ************* SONG 3 LOOP STARTS HERE **************  
+void Song3title()  {
+  int keyVal = analogRead(A0);
+  LCDswitchState = digitalRead(LCDswitchPin); // check state of menu button again
+  
+  while (LCDswitchState == LOW)  { // continue loop while menu button isn't pressed  
+    LCDswitchState = digitalRead(LCDswitchPin); // check state of menu button again 
+
+      //************* START SONG 4 TITLE LOOP ********************
+      if (LCDswitchState == HIGH)  { // if menu button is pressed, then...
+        LCDswitchCounter++; // set button count to 4
+        Serial.print("number of button pushes:  ");
+        Serial.println(LCDswitchCounter);
+        delay(300); // min. time until counts adds 1 more
+
+        Song4title();
+        lcd.clear();
+        break;
+        }
+        
+      else  { // if menu button is not pressed
+        int keyVal = analogRead(A0);
+        Serial.println(keyVal); 
+         
+         if(keyVal >= 2)  {
+           digitalWrite(blueLED, LOW);
+           Song3();
+           break;
+           } // end if
+           
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("    JEOPARDY");
+        lcd.setCursor(0, 1);
+        lcd.print("   THEME SONG");
+        delay(50);
+        }
+        
+        } // end while song 3 -> 4
+        
+} // end Song3title loop
+
+// ************* SONG 4 LOOP STARTS HERE **************  
+void Song4title()  {
+  int keyVal = analogRead(A0);
+  LCDswitchState = digitalRead(LCDswitchPin); // check state of menu button again
+  
+  while (LCDswitchState == LOW)  { // continue loop while menu button isn't pressed  
+    LCDswitchState = digitalRead(LCDswitchPin); // check state of menu button again 
+
+      //************* START SONG 5 TITLE LOOP ********************
+      if (LCDswitchState == HIGH)  { // if menu button is pressed, then...
+        LCDswitchCounter++; // set button count to 5
+        Serial.print("number of button pushes:  ");
+        Serial.println(LCDswitchCounter);
+        delay(300); // min. time until counts adds 1 more
+
+        Song5title();
+        lcd.clear();
+        break;
+        }
+        
+      else  { // if menu button is not pressed
+        int keyVal = analogRead(A0);
+        Serial.println(keyVal); 
+         
+         if(keyVal >= 2)  {
+           digitalWrite(blueLED, LOW);
+           Song4();
+           break;
+           } // end if
+          
+          lcd.clear();
+          lcd.setCursor(0, 0);
+          lcd.print("     SONG 4");
+          lcd.setCursor(0, 1);
+          lcd.print("   TITLE HERE");
+          delay(50);
+          }
+        
+        } // end while song 4 -> 5
+        
+} // end Song4title loop
+
+// ************* SONG 5 LOOP STARTS HERE **************  
+void Song5title()  {
+  int keyVal = analogRead(A0);
+  LCDswitchState = digitalRead(LCDswitchPin); // check state of menu button again
+  
+  while (LCDswitchState == LOW)  { // continue loop while menu button isn't pressed  
+    LCDswitchState = digitalRead(LCDswitchPin); // check state of menu button again 
+
+      //************* START SONG 4 TITLE LOOP ********************
+      if (LCDswitchState == HIGH)  { // if menu button is pressed, then...
+        LCDswitchCounter=0; // set button count to 0
+        Serial.print("number of button pushes:  ");
+        Serial.println(LCDswitchCounter);
+        delay(300); // min. time until counts adds 1 more
+        lcd.clear();
+        }
+        
+      else  { // if menu button is not pressed
+        int keyVal = analogRead(A0);
+        Serial.println(keyVal); 
+         
+         if(keyVal >= 2)  {
+           digitalWrite(blueLED, LOW);
+           Song5();
+           break;
+           } // end if
+           
+          lcd.clear();
+          lcd.setCursor(0, 0);
+          lcd.print("     SONG 5");
+          lcd.setCursor(0, 1);
+          lcd.print("   TITLE HERE");
+          delay(50);
+          }
+        
+        } // end while song 4 -> 5
+        
+} // end Song5title loop
+</code></pre>
+                                </div>
+                            </section>
+                            <!--End code section-->
+                        
+                        </div>
+                        <!--Left description-->
+
+                        <div class="col-md-3 col-md-offset-1 right-aside">
+                                <div class="affixable" data-spy="affix" data-offset-top="695" style>
+                                    <ul class="nav">
+                                        <li class="active"><a class="smooth-scroll" href="#subsection-story">Story</a></li>
+                                        <li class=""><a class="smooth-scroll" href="#subsection-components">Components</a></li>
+                                        <li class=""><a class="smooth-scroll" href="#subsection-schematics">Schematics</a></li>
+                                        <li class=""><a class="smooth-scroll" href="#subsection-instructions">Instructions</a></li>
+                                        <li class=""><a class="smooth-scroll" href="#subsection-code">Code</a></li>
+                                    </ul>
+                                </div>
+                           
+                        </div>
+                        <!--Right instruction jump-->
+                    </div>
+                    <!--End row-->
+                </div>
+            </section>
+            <!--End description-->
+        </div>
+        <!--container 1-->
+    </div>
+    <!--wrapper-->
+
+    <div id="footer">
+        <h2>© 2016 Gettysburg College. All Rights Reserved</h2>
+    </div>
+    
+    
+    <!--SCRIPTS-->
+    <script>
+        //jQuery hover menu
+        $(document).ready(function() {
+            $(".dropdown").hover(function() {
+                $(this.css("visibility", "visible"));
+            }, function() {
+                $(this.css("visibility", "hidden"));
+            });
+        });
+    </script>
+    <script type="text/javascript" src="../prism.js"></script>
+    <script>
+        //Date event
+        var d = new Date();
+        var month = new Array();
+        month[0] = "January";
+        month[1] = "February";
+        month[2] = "March";
+        month[3] = "April";
+        month[4] = "May";
+        month[5] = "June";
+        month[6] = "July";
+        month[7] = "August";
+        month[8] = "September";
+        month[9] = "October";
+        month[10] = "November";
+        month[11] = "December";
+        var currentMonth = month[d.getMonth()];
+        var month = currentMonth;
+        var dateString = month + " " + d.getDate() + ", " + d.getFullYear();
+        document.getElementById("currentDate").innerHTML = dateString;
+    </script>
+    <script>
+        //https://css-tricks.com/snippets/jquery/smooth-scrolling/
+        //Smooth Scroll jQuery
+        $('a[href*="#"]:not([href="#"])').click(function(){  
+        var target = $(this.hash);
+          $('html, body').animate({
+              scrollTop: target.offset().
+              top}, 1200);
+          return false;
+        });
+    </script>
+</body>
+</html>

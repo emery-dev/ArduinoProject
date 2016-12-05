@@ -20,31 +20,31 @@
         <div id="navbar" class="navbar navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
+                    <a type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                    </button>
+                        <span class="icon-bar"></span>
+                    </a>
                 </div>
 
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="text-center"><a href="index.html">Home</a></li>
-                        <li class="dropdown text-center"><a href="projects/projects.html">Projects <b class="caret"></b></a>
+                        <li class=""><a href="index.html">Home</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="glossary.html">Glossary</a></li>
+                        <li class="dropdown">
+                            <a href="projects/projects.html" class="dropdown-toggle" data-toggle="dropdown"> Projects <b class="caret"></b></a>
                             <ul id="projectsmenu" class="dropdown-menu">
                                 <li><a href="projects/project1/project1.html">Project 1</a></li>
                                 <li><a href="projects/project2/piezobuzzer.html">Piezo Buzzer</a></li>
                                 <li><a href="projects/project3/treyclock.html">Clock/Timer/Stopwatch</a></li>
                                 <li><a href="projects/project4/lightupsensor.html">Light Up Sensor</a></li>
-                                <li><a href="projects/project5/piano.html">Piano</a></li>
+                                <li><a href="#">Project 5</a></li>
                                 <li><a href="#">Project 6</a></li>
                             </ul>
                         </li>
-                        
-                        <li><a href="schedule/monday.html">Schedule</a></li>
-                        <li><a href="glossary.html">Glossary</a></li>
-                        
                         <!--Projects-->
                     </ul>
                 </div>
@@ -64,7 +64,7 @@
                     <div class="glossary-item-description">
                         <p>Arduino/Genuino boards senses the environment by receiving inputs from many sensors, and affects their surroundings by controlling lights, motors, and other actuators. Arduino/Genuino boards are the microcontroller development platform that will be at the heart of your projects. When making something you will be building the circuits and interfaces for interaction, and telling the microcontroller how to interface with other components. Here the anatomy of Arduino/Genuino Uno.</p>
                         <div class="text-center">
-                            <img style="width:100%;" class="glossaryImg" src="glossaryImgs/BoardAnatomy.png" alt="arduino">
+                            <img style="width:800px" class="glossaryImg" src="glossaryImgs/BoardAnatomy.png" alt="arduino">
                         </div>
                         <p>1. Digital pins Use these pins with digitalRead(), digitalWrite(), and analogWrite(). analogWrite() works only on the pins with the PWM symbol.</p>
                         <p>2. Pin 13 LED The only actuator built-in to your board. Besides being a handy target for your first blink sketch, this LED is very useful for debugging.</p>
@@ -260,12 +260,13 @@
     </script>
 
     <script>
-        //http://jsfiddle.net/roXon/BRvJA/1/ 
+        //http://jsfiddle.net/roXon/BRvJA/1/
         $('h2.glossary-item-title').each(function () {
             var $this = $(this);
             $this.next('.glossary-item-description').hide();
 
-            function toggleActive() {                               $('.active').toggleClass('active').next('.glossary-item-description').slideToggle(800);
+            function toggleActive() {
+                $('.active').toggleClass('active').next('.glossary-item-description').slideToggle(800);
             }
 
             $this.click(function () {
@@ -275,7 +276,6 @@
                 $this.toggleClass("active").next('.glossary-item-description').slideToggle(800);
             });
         });
-        
     </script>
 
     <script>

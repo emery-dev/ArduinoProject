@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="js/jquery.smoothState.min.js"></script>
+    <script src="js/smoothTransition.js"></script>
+    <script src="timeline/timeline.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:700,400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="timeline/reset.css">
+    <link rel="stylesheet" href="timeline/style.css">
+    <link rel="stylesheet" href="../main.css">
+    <title>GC Arduino Camp</title>
+
+</head>
+
+<body>
+    <div id="wrap">
+        <!-- Fixed navbar -->
+        <div id="navbar" class="navbar navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class=""><a href="../index.html">Home</a></li>
+                        <li class="dropdown">
+                            <a href="projects/projects.html"> Projects <b class="caret"></b></a>
+                            <ul id="projectsmenu" class="dropdown-menu">
+                                <li><a href="projects/project1/project1.html">Project 1</a></li>
+                                <li><a href="projects/project2/piezobuzzer.html">Piezo Buzzer</a></li>
+                                <li><a href="projects/project3/treyclock.html">Clock/Timer/Stopwatch</a></li>
+                                <li><a href="projects/project4/lightupsensor.html">Light Up Sensor</a></li>
+                                <li><a href="projects/project5/piano.html">Piano</a></li>
+                                <li><a href="#">Project 6</a></li>
+                            </ul>
+                        </li>
+                        <!--Projects-->
+                        <li><a href="monday.html">Schedule</a></li>
+                        <li><a href="../glossary.html">Glossary</a></li>
+                    </ul>
+                </div>
+                <!--/.navbar-collapse -->
+            </div>
+        </div>
+
+        <!-- Begin page content -->
+        <div id="main" class="container">
+            <div class="page-header">
+                <h1 id="currentDate"></h1>
+            </div>
+            
+            <div class="container">
+                <div class="schedule">
+                    <div class="text-center row">
+                            <ul class="pagination">
+                                <li><a href="monday.html" data-target="1">Monday</a></li>
+                                <li><a href="tuesday.html" data-target="2">Tuesday</a></li>
+                                <li><a href="wednesday.html" data-target="3">Wednesday</a></li>
+                                <li><a href="thursday.html" data-target="4">Thursday</a></li>
+                                <li><a href="friday.html" data-target="5">Friday</a></li>
+                            </ul>
+                    </div>
+                    <!--Row-->
+                </div>
+                <!--Schedule top-->
+                <div class="sceneElement daily-schedule" data-viewport="3">
+                    <div class="row">
+                        <section id="cd-timeline" class="cd-container">
+                            <div class="cd-timeline-block">
+                                <div class="cd-timeline-img cd-food">
+                                    <img src="../fonts/cutlery.svg" alt="Food">
+                                </div>
+                                <div class="cd-timeline-content">
+                                    <h2>8-9am</h2>
+                                    <p class="text-center">Breakfast</p>
+                                </div>
+                            </div>
+                            <div class="cd-timeline-block">
+                                <div class="cd-timeline-img cd-work">
+                                    <img src="../fonts/gears.svg" alt="Camp">
+                                </div>
+                                <div class="cd-timeline-content">
+                                    <h2>9-12pm</h2>
+                                    <p class="text-center">Camp Session</p>
+                                </div>
+                            </div>
+                            <div class="cd-timeline-block">
+                                <div class="cd-timeline-img cd-food">
+                                    <img src="../fonts/cutlery.svg" alt="Food">
+                                </div>
+                                <div class="cd-timeline-content">
+                                    <h2>12-1pm</h2>
+                                    <p class="text-center">Lunch</p>
+                                </div>
+                            </div>
+                            <div class="cd-timeline-block">
+                                <div class="cd-timeline-img cd-work">
+                                    <img src="../fonts/gears.svg" alt="Camp">
+                                </div>
+                                <div class="cd-timeline-content">
+                                    <h2>1-4pm</h2>
+                                    <p class="text-center">Camp Session</p>
+                                </div>
+                            </div>
+                            <div class="cd-timeline-block">
+                                <div class="cd-timeline-img cd-food">
+                                    <img src="../fonts/cutlery.svg" alt="Food">
+                                </div>
+                                <div class="cd-timeline-content">
+                                    <h2>4-5:30pm</h2>
+                                    <p class="text-center">Dinner</p>
+                                </div>
+                            </div>
+                            <div class="cd-timeline-block">
+                                <div class="cd-timeline-img cd-blue">
+                                    <img src="../fonts/clock.svg" style="font-weight:500;"alt="Free Time">
+                                </div>
+                                <div class="cd-timeline-content">
+                                    <h2>5:30-8pm</h2>
+                                    <p class="text-center">Free time</p>
+                                </div>
+                            </div>
+                        </section>
+                        <!--End timeline-->
+                    </div>
+                </div>
+                <!--daily-schedule-->
+            </div>
+            <!--Container nav and schedule-->
+        </div>
+        <!--container init-->
+    </div>
+    <!--wrapper-->
+
+    <div id="footer">
+        <h2>© 2016 Gettysburg College. All Rights Reserved</h2>
+    </div>
+
+    <script>
+        //jQuery hover menu
+        $(document).ready(function () {
+            $(".dropdown").hover(function () {
+                $(this.css("visibility", "visible"));
+            }, function () {
+                $(this.css("visibility", "hidden"));
+            });
+        });
+    </script>
+    
+    <script>
+        //Date event
+        var d = new Date();
+        var month = new Array();
+        month[0] = "January";
+        month[1] = "February";
+        month[2] = "March";
+        month[3] = "April";
+        month[4] = "May";
+        month[5] = "June";
+        month[6] = "July";
+        month[7] = "August";
+        month[8] = "September";
+        month[9] = "October";
+        month[10] = "November";
+        month[11] = "December";
+        var currentMonth = month[d.getMonth()];
+        var month = currentMonth;
+        var dateString = month + " " + d.getDate() + ", " + d.getFullYear();
+        document.getElementById("currentDate").innerHTML = dateString;
+    </script>
+</body>
+
+</html>
