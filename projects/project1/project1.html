@@ -53,10 +53,10 @@
                         <li class="dropdown">
                             <a href="../projects.html"> Projects <b class="caret"></b></a>
                             <ul id="projectsmenu" class="dropdown-menu">
-                                <li><a href="project1.html">Project 1</a></li>
+                                <li><a href="project1.html">Battery Sensor</a></li>
                                 <li><a href="../project2/piezobuzzer.html">Piezo Buzzer</a></li>
                                 <li><a href="../project3/treyclock.html">Clock/Timer/Stopwatch</a></li>
-                                <li><a href="../project4/lightupsensor.html">Light Up Sensor</a></li>
+                                <li><a href="../project4/lightupsensor.html">Cookie Alarm</a></li>
                                 <li><a href="../project5/piano.html">Piano</a></li>
                                 <li><a href="#">Project 6</a></li>
                             </ul>
@@ -98,16 +98,16 @@
             <section class="overview">
                 <div class="container">
                     <div id="leftProjectOverview" class="col-md-5 text-center">
-                        <h1 class="page-header" id="projectName">Project 1</h1>
+                        <h1 class="page-header" id="projectName">Battery Level Indicator</h1>
                         <h2 class="page-header">About </h2>
-                        <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at auctor augue. Maecenas vel justo massa. Vivamus eget pretium sem, id volutpat ipsum.</p>
+                        <p class="text-left">This Project will deterine the charge level of a 9 volt battery. The amount of charge will be relayed to the user through LED lights. If the battery is fully charged a green light will illuminate, yellow for partially charged and red if the battery is dead.</p>
                         <h2 class="page-header">Information</h2>
-                        <p class="text-left">Difficulty: </p>
-                        <p class="text-left">Estimated time: </p>
+                        <p class="text-left">Difficulty: Easy </p>
+                        <p class="text-left">Estimated time: 1-2 hours</p>
                     </div>
 
                     <div id="rightProjectOverview" class="col-md-7">
-                        <img src="imgs/project1.png" alt="Project 1">
+                        <img src="imgs/battery.jpg" alt="Project 1">
                     </div>
                 </div>
             </section>
@@ -119,9 +119,8 @@
                         <div class="col-md-7 col-md-offset-1 left-aside">
                             <section class="subsection gototarget" id="subsection-story">
                                 <h2 class="subsection-title">Story</h2>
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yHjvK-bypnI"></iframe>
-                                </div>
+                              		<p>This useful little device will let you know when it is time to swap out you batteries. It is simple and fun for beginners to get
+                              		into the fun of Arduino building and coding!
                                 <!--End embed-->
                             </section>
                             <!--End story subsection-->
@@ -132,9 +131,12 @@
                                     <p>The following hardware components were used in this project:</p>
                                     <ul>
                                         <li>Arduino Uno</li>
-                                        <li>8x8 LED matrix array (x 5)</li>
-                                        <li>Female-to-female jumper wires (4 jumpers of 5 cables)</li>
-                                        <li>Male-to-female wires (1 jumper of 5 cables)</li>
+                                        <li>Small Breadboard)</li>
+                                        <li>9 Male-to-female wires</li>
+					<li>9 Volt battery Snap</li>
+					<li>9 Volt battery</li>
+					<li>3 LED's (green, yellow, red)</li>
+					<li>3 330 ohm resistors</li>
                                         <li>Arduino IDE</li>
                                     </ul>
                                 </div>
@@ -146,316 +148,70 @@
                                 <h2 class="subsection-title">Schematics and Assembly</h2>
                                 <div class="schematics">
                                     <h4>Figure 1 description</h4>
-                                    <img src="imgs/project1schematic1.jpg">
-                                    <h4>Figure 2 description</h4>
-                                    <img src="imgs/project1schematic2.jpg">
-                                    <h4>Figure 3 description</h4>
-                                    <img src="imgs/project1schematic3.jpg">
+                                    <img src="imgs/Schem.jpg">
                                 </div>
                             </section>
                             <!--End Schematics subsection-->
+                            <section class="subsection gototarget" id="subsection-instructions">
+                                <h2 class="subsection-title">Instructions</h2>
+                                <h4>Hardware connections:</h4>
+                                <p>There is very little wiring in this project. First, ground the breadboard by running a wire from the GRND port on the Arduino to the negative rail on the Breadboard.
+                                Next, wire the battery clip to the breadboard and run a wire from the same row as the batteries positive end(the red wire) to A0 on the Arduino
+                                Now you will put the LED lights on the bread board, and , wire the yellow light (through a resistor) to digital port 4, and wire the red light (through a resistor) to digital port 6. 
+                                DO NOT forget to ground the LED lights with a wire from the negative rail to the negative end of the light(the shorter end)
+                                
+                            </section>
+                            <!--End instructions section-->
                             
                             <section class="subsection gototarget" id="subsection-code">
                                 <h2 class="subsection-title">Code</h2>
                                 <div class="code">
-                                    <pre style="height:500px"><code class="language-javascript">// LED display v1.0 By Igor Fonseca Albuquerque, Thiago Farrauche, Diego Augustus and Yhan Christian
-//include libraries
-#include "LedControl.h"
-LedControl lc = LedControl(13,12,11,5); //Pin 13 = DIN, Pin 12 = CLK, Pin 11 = CS. 5 = number of displays
+                                    <pre style="height:500px; margin-bottom:25px;"><code class="language-clike">/*
+                            
+                            <section class="subsection gototarget" id="subsection-code">
+                                <h2 class="subsection-title">Code</h2>
+                                <div class="code">
+                                    <pre style="height:500px"><code class="language-javascript">
 
-//************************
-// Definition of the faces
-//************************
-// neutral eye
-byte neutral_eye[8] = {B00000000,
-                       B00011000,
-                       B00111100,
-                       B01111110,
-                       B01111110,
-                       B00111100,
-                       B00011000,
-                       B00000000};
-// closed eye (up)
-byte closed_eye_up[8] = {B00000000,
-                         B00001100,
-                         B00011000,
-                         B00011000,
-                         B00011000,
-                         B00011000,
-                         B00001100,
-                         B00000000};
-                        
-// closed eye (down)
-byte closed_eye_down[8] ={B00000000,
-                          B00001100,
-                          B00001100,
-                          B00000110,
-                          B00000110,
-                          B00001100,
-                          B00001100,
-                          B00000000};                        
+   //R3 Battery Tester
+#define newLED 2 //green  LED
+#define okLED 4 // yellow LED
+#define oldLED 6 //red LED
 
-// happy mouth           //part 1 
-byte happy_mouth[24] = { B00000000,
-                         B00000000,
-                         B00000000,
-                         B00000000,
-                         B01100000,
-                         B00110000,
-                         B00011000,
-                         B00001100,    
-                         //part 2
-                         B00001110,
-                         B00000110,
-                         B00000110,
-                         B00000110,
-                         B00000110,
-                         B00000110,
-                         B00000110,
-                         B00001100,
-                         //part 3 
-                         B00001100,
-                         B00011000,
-                         B00110000,
-                         B01100000,
-                         B00000000,
-                         B00000000,
-                         B00000000,
-                         B00000000 };
-                         
-                                                  
-// sad mouth            //part 1
-byte sad_mouth[24] = {   B00000000,
-                         B00000000,
-                         B00000000,
-                         B00000000,
-                         B00000110,
-                         B00001100,
-                         B00011000,
-                         B00110000,
-                         //part 2
-                         B00110000,
-                         B01100000,
-                         B01100000,
-                         B01100000,
-                         B01100000,
-                         B01100000,
-                         B01100000,
-                         B00110000,
-                         //part 3
-                         B00110000,
-                         B00011000,
-                         B00001100,
-                         B00000110,
-                         B00000000,
-                         B00000000,
-                         B00000000,
-                         B00000000 };
+int analogValue = 0;
+float voltage = 0;
+int ledDelay = 3000;
 
-//very happy mouth            //part 1
-byte very_happy_mouth[24] = { B00000000,
-                              B00000000,
-                              B01110000,
-                              B01111100,
-                              B01100110,
-                              B01100110,
-                              B01100011,
-                              B01100011,
-                              //part 2
-                              B01100011,
-                              B01100011,
-                              B01100011,
-                              B01100011,
-                              B01100011,
-                              B01100011,
-                              B01100011,
-                              B01100011,                        
-                              //part 3
-                              B01100011,
-                              B01100011,
-                              B01100110,
-                              B01100110,
-                              B01111100,
-                              B01110000,
-                              B00000000,
-                              B00000000 };                         
-                         
-// neutral mouth              //part 1
-byte neutral_mouth[24] = {    B00000000,
-                              B00000000,
-                              B00010000,
-                              B00010000,
-                              B00010000,
-                              B00010000,
-                              B00010000,
-                              B00010000,
-                              //part 2
-                              B00010000,
-                              B00010000,
-                              B00010000,
-                              B00010000,
-                              B00010000,
-                              B00010000,
-                              B00010000,
-                              B00010000,
-                              //part 3
-                              B00010000,
-                              B00010000,
-                              B00010000,
-                              B00010000,
-                              B00010000,
-                              B00010000,
-                              B00000000,
-                              B00000000 };
-                         
-// tongue out            //part 1
-byte tongue_mouth[24] = {B00000000,
-                         B00000000,
-                         B00000100,
-                         B11001110,
-                         B01111110,
-                         B00111110,
-                         B00011100,
-                         B00001100,    
-                         //part 2
-                         B00001110,
-                         B00000110,
-                         B00000110,
-                         B00000110,
-                         B00000110,
-                         B00000110,
-                         B00000110,
-                         B00001100,
-                         //part 3 
-                         B00001100,
-                         B00011000,
-                         B00110000,
-                         B01100000,
-                         B00000000,
-                         B00000000,
-                         B00000000,
-                         B00000000 };
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(newLED, OUTPUT);
+  pinMode(okLED, OUTPUT);
+  pinMode(oldLED, OUTPUT);
 
-// opened mouth            //part 1
-byte opened_mouth[24] = {  B00000000,
-                           B00000000,
-                           B00000000,
-                           B00000000,
-                           B00000000,
-                           B00000000,
-                           B00000000,
-                           B00000000,
-                           // part 2
-                           B00000000,
-                           B00011100,
-                           B00100010,
-                           B01000001,
-                           B01000001,
-                           B00100010,
-                           B00011100,
-                           B00000000,
-                           // part 3
-                           B00000000,
-                           B00000000,
-                           B00000000,
-                           B00000000,
-                           B00000000,
-                           B00000000,
-                           B00000000,
-                           B00000000 };
-
-//**************
-// Arduino Setup
-//**************
-void setup()
-{
-  //initialize displays (configure light intensity and clear all)
-  lc.shutdown(0,false);
-  lc.setIntensity(0,1);
-  lc.clearDisplay(0);
-  lc.shutdown(1,false);
-  lc.setIntensity(1,1);
-  lc.clearDisplay(1);
-  lc.shutdown(2,false);
-  lc.setIntensity(2,1);
-  lc.clearDisplay(2);
-  lc.shutdown(3,false);
-  lc.setIntensity(3,1);
-  lc.clearDisplay(3);
-  lc.shutdown(4,false);
-  lc.setIntensity(4,1);
-  lc.clearDisplay(4);
- 
-  //start serial communication
-  Serial.begin(19200);
-  
 }
 
-//**********
-// Main Loop
-//**********
-void loop()
-{
-  
-  if (Serial.available())  //verifies if there is serial data available
-  {
-    char cmd = Serial.read();
-                
-    if(cmd == ':') {
-      display_eyes(neutral_eye, neutral_eye);
-    }
-    if(cmd == ';') {
-      display_eyes(neutral_eye, closed_eye_up);
-    }
-    if(cmd == '8') {
-      display_eyes(spooky_eye, spooky_eye);
-    }
-    if(cmd == ')'){
-      display_mouth(happy_mouth);
-    }    
-    if(cmd == '('){
-      display_mouth(sad_mouth);
-    }    
-    if((cmd == 'D')||(cmd == 'd')){
-      display_mouth(very_happy_mouth);
-    }
-    if((cmd == 'p')||(cmd == 'P')){
-      display_mouth(tongue_mouth);
-    }    
-    if((cmd == 'o')||(cmd == 'O')){
-      display_mouth(opened_mouth);
-    }    
-    if(cmd == '|'){
-      display_mouth(neutral_mouth);
-    }    
-
+void loop() {
+  // put your main code here, to run repeatedly:
+  delay(1000);
+  analogValue = analogRead(0);
+  voltage = analogValue * 0.0048;
+  if (voltage >= 1.6) {
+    digitalWrite(newLED, HIGH);
+    delay(ledDelay);
+    digitalWrite(newLED, LOW);
   }
-}
-
-
-//********************
-// Auxiliary functions
-//********************
-
-//change eyes
-void display_eyes(byte right_eye[], byte left_eye[]) {
-  for(int i=0;i<8;i++) {
-   lc.setRow(0,i,left_eye[i]);
-   lc.setRow(1,i,right_eye[i]);
-  } 
-}
-
-
-//change mouth
-void display_mouth(byte mouth[]) {
-  for(int i=0;i<8;i++) {
-    lc.setRow(2,i,mouth[i]);
-    lc.setRow(3,i,mouth[i+8]);
-    lc.setRow(4,i,mouth[i+16]);
+  else if (voltage >= 1.4) {
+    digitalWrite(okLED, HIGH);
+    delay(ledDelay);
+    digitalWrite(okLED, LOW);
   }
-}
+  else {
+    digitalWrite(oldLED, HIGH);
+    delay(ledDelay);
+    digitalWrite(oldLED, LOW);
+  }
 
-//setRow is used instead of setColumn because it runs faster! Although, characters must be declared rotated 90 degrees counter-clockwise.
+}
                                     </code></pre>
                                 </div>
                             </section>

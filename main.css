@@ -44,10 +44,16 @@ h2 {
 
 #navbar li>a:hover,
 #navbar li>a:focus {
+    cursor: pointer;
     color: #F68026;
     background-color: #005696;
     text-decoration: underline;
     font-weight:700;
+}
+
+#gettysburg-logo {
+    display: none;
+    visibility: hidden;
 }
 
 .container>.navbar-header {
@@ -154,6 +160,10 @@ h2 {
     color:#fff;
     font-family: 'Roboto Slab', sans-serif, Arial;
     font-style: italic;
+}
+
+#projects li>a:hover{
+    color: #F68026;
 }
 
 /* Project Individual Page*/
@@ -307,8 +317,24 @@ h2 {
 
 /* Schedule CSS */
 
+.cd-night {
+    background: #4e4e47;
+}
+
 .pagination>li>a:hover {
     color: #F68026;
+}
+
+.pagination>li>a{
+    background-color:#ddd;
+}
+
+.pagination>li>a{
+    background-color:#fff;
+}
+
+div.cd-timeline-content:hover {
+    background-color: bisque;
 }
 
 /* Responsive CSS */
@@ -322,7 +348,7 @@ h2 {
 /* Width < 1200px */
 @media (max-width: 1200px){ 
     #rightProjectOverview{
-        padding-top:60px;
+        padding-top:3%;
     }
     #rightProjectOverview img{
         width:90%;
@@ -331,6 +357,9 @@ h2 {
 }
 /* Width < 992px */
 @media (max-width:992px){
+    .service{
+        border-bottom: 1px solid #ddd;
+    }
     #rightProjectOverview{
         padding-top:0;
     }
@@ -356,8 +385,14 @@ h2 {
     #splash {
         padding-top:5px;
     }
+    #splash.jumbotron>h1{
+        font-size: 46px;
+    }
     .page-header {
         margin-top:80px;
+    }
+    .service {
+        margin:0 50px 15px 50px;
     }
     #leftProjectOverview{
         padding-right:25px;
@@ -388,5 +423,30 @@ h2 {
         margin:0 0 10px 15px; 
         width:95%;
     }
-
+    .pagination{
+        border-radius:0px;
+        margin-bottom: 0px;
+    }
+    .pagination>li{
+        display: block;
+        padding-bottom: 5px;
+    }
+    .pagination>li>a{
+        float: none;
+        border: none;
+        color:#FFF;
+        background-color: transparent;
+    }
+    .pagination>li>a:hover{
+        border: none;
+        background-color: transparent;
+    }
+    .pagination>li:first-child>a{
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+    .pagination>li:last-child>a{
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
 }

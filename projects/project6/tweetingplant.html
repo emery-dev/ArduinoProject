@@ -1,0 +1,293 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:700,400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../prism.css">
+    <link rel="stylesheet" href="../../main.css">
+
+    <title>GC Arduino Camp</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <!-- Fixed navbar -->
+        <div id="navbar" class="navbar navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class=""><a href="../../index.html">Home</a></li>
+                        <li class="dropdown">
+                            <a href="../projects.html"> Projects <b class="caret"></b></a>
+                            <ul id="projectsmenu" class="dropdown-menu">
+                                <li><a href="../project1/batterytester.html">Battery Tester</a></li>
+                                <li><a href="../project2/piezobuzzer.html">Piezo Buzzer</a></li>
+                                <li><a href="../project3/treyclock.html">Clock/Timer/Stopwatch</a></li>
+                                <li><a href="../project4/lightupsensor.html">Cookie Alarm</a></li>
+                                <li><a href="../project5/piano.html">Piano</a></li>
+                                <li><a href="tweetingplant.html">Tweeting Plant</a></li>
+                                <li><a href="../project7/ledlight.html">Led Matrix</a></li>
+                                <li><a href="../project8/byoarduino.html">Build Your Own Arduino</a></li>
+                                <li><a href="../project9/carsensor.html">Car Sensor</a></li>
+                                <li><a href="../project10/lightshow.html">Light Show</a></li>
+                            </ul>
+                        </li>
+                        <!--Projects-->
+                        <li><a href="../../schedule/monday.html">Schedule</a></li>
+                        <li><a href="../../glossary.html">Glossary</a></li>
+                        
+                    </ul>
+                </div>
+                <!--/.navbar-collapse -->
+            </div>
+        </div>
+
+        <!-- Begin page content -->
+        <div class="container">
+            <div class="page-header">
+                <h1 id="currentDate"></h1>
+            </div>
+
+            <section class="overview">
+                <div class="container">
+                    <div id="leftProjectOverview" class="col-md-5 text-center">
+                        <h1 class="page-header" id="projectName">Tweeting Plant</h1>
+                        <h2 class="page-header">About</h2>
+                        <p class="text-left">This project connects you to your plant via online Twitter status updates that reach you anywhere in the world. When your plant needs water, it will post to let you know, and send its thanks when you show it love.</p>
+                        <h2 class="page-header">Information</h2>
+                        <p class="text-left">Difficulty: <span style="color:#F68026">Hard</span></p>
+                        <p class="text-left">Estimated time: <span style="color:#005696">4 hours</span></p>
+                    </div>
+
+                    <div id="rightProjectOverview" class="col-md-7">
+                        <img src="imgs/plantOverview.jpg" class="img-fluid" alt="Project">
+                    </div>
+                </div>
+            </section>
+            <!--End jumbotron-->
+            <section class="description">
+                <div class="container">
+                    <div class="row">
+                        
+                        <div class="col-md-7 col-md-offset-1 left-aside">
+                            <section class="subsection gototarget" id="subsection-story">
+                                <h2 class="subsection-title">Story</h2>
+                                <p>The tweeting arduino plant is a fun project that brings your plant to life! You can play around with this project and adjust your plants' tweets and even when it calls for help. Follow along below to get your plant talking too.</p>
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe width="854" height="480" src="https://www.youtube.com/embed/UPQu3G_mzIs" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                                <p>The Botanicalls Twitter plant project has a few different status updates, based upon current conditions:</p>
+                                <ul>
+                                    <li>When the moisture level of the plant's soil drops below the satisfactory threshold, it will send a status update that the plant needs to be watered.</li>
+                                    <li>If the soil moisture drops below a critical level the plant will twitter that it is urgently in need of watering.</li>
+                                    <li>Any rapid rise in soil moisture will be detected as a watering event. The plant will then determine if the soil moisture has risen to the desired level for a proper watering. If it has, then it will twitter its thanks.</li>
+                                    <li>If a watering event occurs, but the soil moisture has not reached the desired level, the plant will twitter to report that it was watered, but not sufficiently.</li>
+                                    <li>Likewise, if a watering event occurs, but the plant was not in need of water yet, the plant will twitter to complain that it is being over watered.</li>
+                                </ul>
+                                <!--End embed-->
+                            </section>
+                            <!--End story subsection-->
+                            
+                            <section class="subsection gototarget" id="subsection-components">
+                                <h2 class="subsection-title">Components</h2>
+                                <div class="components">
+                                    <p>The following hardware components were used in this project:</p>
+                                    <ul>
+                                        <li>1x Plant</li>
+                                        <li>1x Arduino</li>
+                                        <li>1x USB Cable</li>
+                                        <li>1x Breadboard</li>
+                                        <li>1x Adafruit Xport Shield</li>
+                                        <li>1x Xport or Xport Direct</li>
+                                        <li>1x 9v DC Power Adapter</li>
+                                        <li>1x Ethernet Cable</li>
+                                        <li>1x 10K Ohm resistor</li>
+                                        <li>1x 100 Ohm resistor</li>
+                                        <li>1x 2N222A or 2N3904 transistor</li>
+                                        <li>2x nails</li>
+                                        <li>Wiring</li>
+                                        <li>Soldering Iron</li>
+                                        <li>Zterm or HyperTerminal, and a Twitter Account</li>
+                                    </ul>
+                                </div>
+                                <!--End Components list-->
+                            </section>
+                            <!--End components subsection-->
+                            
+                            <section class="subsection gototarget" id="subsection-schematics">
+                                <h2 class="subsection-title">Schematics and Assembly</h2>
+                                <div class="schematics">
+                                    <h4>Figure 1</h4>
+                                    <img src="imgs/plantDiagram1.jpg">
+                                    <h4>Figure 2</h4>
+                                    <img src="imgs/plantDiagram2.jpg">
+                                    <h4>Figure 3</h4>
+                                    <img src="imgs/plantDiagram3.jpg">
+                                    <h4>Figure 4</h4>
+                                    <img src="imgs/plantDiagram4.jpg">
+                                    <h4>Figure 5</h4>
+                                    <img src="imgs/plantDiagram5.jpg">
+                                    <h4>Figure 6 (Optional)</h4>
+                                    <img src="imgs/plantDiagram6.jpg">
+                                </div>
+                            </section>
+                            <!--End Schematics subsection-->
+                            
+                            <section class="subsection gototarget" id="subsection-instructions">
+                                <h2 class="subsection-title">Instructions</h2>
+                                <h4><b>Hardware Connections:</b></h4>
+                                <p><b><u>Figure 1:</u></b></p>
+                                <p>Connect the Arduino's 3.3V power and ground to both sides of the breadboard. Also connect 3V power to the AREF pin on the Arduino. This will be a reference voltage for the moisture sensor.</p>
+                                <p><b><u>Figure 2:</u></b></p>
+                                <p>	Connect the positive leg of the LED to Arduino digital pin 13. The negative (shorter) leg of the LED connects to the ground bus.</p>
+                                <p><b><u>Figure 3 and 4:</u></b></p>
+                                <p>Soil moisture sensing (transistor) circuit connected to XPort shield. The transistor has three leads coming out of the bottom they are called:</p>
+                                <ul>
+                                    <li>1. emitter</li>
+                                    <li>2. base</li>
+                                    <li>3. collector</li>
+                                </ul>
+                                <p>It's important that each lead is connected properly, so take care with this step and double-check your setup befor applying power to the circuit. The emitter is connected to Arduino analog pin 0, and also via a 10K Ohm resistor to the ground bus. The base is wired to  one of the moisture probe nails. The other moisture probe nail is connected via a 100 Ohm resistor to the 3.3 V power bus. Finally, the collector pin of the transistor is connected directly to the 3.3 V power bus.</p>
+                                <p><b><u>Figure 5:</u></b></p>
+                                <p>Connections between XPort and Arduino Shield:</p>
+                                <ul>
+                                    <li>XPort TX to Arduino digital pin 3</li>
+                                    <li>XPort RX to Arduino digital pin 2</li>
+                                    <li>XPort Reset to Arduino digital pin 4</li>
+                                    <li>XPort DTR to Arduino digtal pin 5</li>
+                                    <li>XPort CTS to Arduino digital pin 6</li>
+                                    <li>XPort RTS to Arduino digital pin 7</li>
+                                </ul>
+                                <p><b><u>Figure 6:</u></b></p>
+                                <p>Attach and connect USB-serial FTDI adaptor for debugging. (This step is optional.) The GND pin connects to the ground bus, the RX pin connects to Arduino digital pin 1. (These photos show the TX pin connected to Arduino digital pin 0, but this connection is not required.) Do not connect anything to the 3.3V pin on the USB-serial adaptor.</p>
+                                <h4><b>Coding Breakdown:</b></h4>
+                                <p>Reference figure 7- you will need to download XPort and configure your XPort's Channel 1 to use Flow 02 and ConnectMode to D4. For a good tutorial check out this <a href="excellent XPort tutorial on LadyAda.net">XPort tutorial</a>from LadyAda.net for more information on connecting with and setting up XPort.</p>
+                                <p>	Plug in your power supply and Ethernet cable then connect the USB cables to your computer.</p>
+                                <p>Open the BotanicallsTwitter sketch in Arduino. You'll need to make at least one change before uploading the code:</p>
+                                <p>Update the line that begins with <code>#define USERNAMEPASS "username:password" </code> with the real username and password for your Twitter account, separated by a : (colon)</p>
+                                <p>You may also want to change some other settings. The Botanicalls system operates based on a variety of moisture thresholds. These will vary by plant, soil composition and even your own personal horticultural style. Start with the default values, and adjust until you are happy with the system's behaviors:</p>
+                                <p>This line defines the value between 0 and 1023 below which the plant is in need of water:</p>
+                                <p><code>#define MOIST 450</code></p>
+                                <p>This line defines the value between 0 and 1023 that defines an urgent state of dryness:</p>
+                                <p><code>#define DRY 350</code></p>
+                                <p>This line defines the moisture value between 0 and 1023 that represents a proper watering.</p>
+                                <p><code>#define SOAKED 600</code></p>
+                                <p>This line defines the positive change in moisture level that indicates a watering event has occurred.</p>
+                                <p><code>#define WATERING_CRITERIA 100</code></p>
+                                <p>The plant's Twitter messages are defined in the "checks" tab. The Arduino has very limited RAM memory for text strings, so keep these messages very short. If they get to long you'll overflow the memory stack and the system will begin to behave erratically.</p>
+                                <p>There are a variety of other settings that can easily be changed to suit your taste including sampling intervals, quantity of samples, Arduino pin connections and so forth. These are documented in the comments for each setting.</p>
+                                <h4><b>Final Steps:</b></h4>
+                                <p>When you are ready to upload the code, select the correct serial port and board type on the Tools menu, then select Upload to I/O Board from the File menu. (You may need to disconnect the wire from the Arduino digital pin 0 that connects to the USB-serial adapter's TX port to avoid an error message. We don't use this connection in the basic example anyway.)</p>
+                                <p>Once the code is uploaded, your system is ready to go. Monitor the USB-serial FTDI connection in a terminal program like HyperTerm or ZTerm with the following settings:</p>
+                                <ul>
+                                    <li>9600 baud</li>
+                                    <li>8 data bits</li>
+                                    <li>1 start bit</li>
+                                    <li>No parity</li>
+                                    <li>No flow control of any kind (neither hardware handshaking or Xon/Xoff should be enabled).</li>
+                                </ul>
+                                <p>When you power up the system you should see a message "Botanicalls starting..." Next you will see a series of moisture readings, interspersed occasionally with a watering detection reading. By touching the nails together, you can simulate a high level of soil moisture. By moving them apart, you will simulate a high level of dryness. Use this procedure to test the system. When BotanicallsTwitter has a message to send, you will see a series of Twitter connection messages, followed by a long string of HTML responses. A final message will let you know if the twitter message was sent successfully or not. Check your Twitter account to see if the message arrived properly.</p>
+                            </section>
+                            <!--End instructions section-->
+                            
+                            <section class="subsection gototarget" id="subsection-code">
+                                <h2 class="subsection-title">Code</h2>
+                                <div class="code">
+                                    <p>Download the <a href="BotanicallsTwitter.zip" download><img src="../../fonts/zipIcon.svg" style="width:25px;height:25px;"> BotanicallsTwitter.zip</a> library.</p>
+                                    <p>The unzipped Botanicalls Twitter folder should be put in the Arduino documents directory (MyDocuments\Arduino on Windows or  Documents:Arduino on the Mac). Restart the Arduino IDE and select File>Sketch.</p>
+                                    <p>Neither the debug output or the Arduino USB connection is needed for day-to-day operation of the Botanicalls Twitter system, so those connections can be removed. The moisture probes made with the nails should be inserted into the plant's soil about midway between the rim of the pot and the plant. Space them about an inch (3 cm) apart. Be sure to check the nails periodically to monitor for excessive corrosion, and to make sure that the solder connections are still strong.</p>
+                                    
+                                </div>
+                            </section>
+                            <!--End code section-->
+                        
+                        </div>
+                        <!--Left description-->
+
+                        <div class="col-md-3 col-md-offset-1 right-aside">
+                                <div class="affixable" data-spy="affix" data-offset-top="695" style>
+                                    <ul class="nav">
+                                        <li class="active"><a class="smooth-scroll" href="#subsection-story">Story</a></li>
+                                        <li class=""><a class="smooth-scroll" href="#subsection-components">Components</a></li>
+                                        <li class=""><a class="smooth-scroll" href="#subsection-schematics">Schematics</a></li>
+                                        <li class=""><a class="smooth-scroll" href="#subsection-instructions">Instructions</a></li>
+                                        <li class=""><a class="smooth-scroll" href="#subsection-code">Code</a></li>
+                                    </ul>
+                                </div>
+                           
+                        </div>
+                        <!--Right instruction jump-->
+                    </div>
+                    <!--End row-->
+                </div>
+            </section>
+            <!--End description-->
+        </div>
+        <!--container 1-->
+    </div>
+    <!--wrapper-->
+
+    <div id="footer">
+        <h2>© 2016 Gettysburg College. All Rights Reserved</h2>
+    </div>
+    
+    
+    <!--SCRIPTS-->
+    <script>
+        //jQuery hover menu
+        $(document).ready(function() {
+            $(".dropdown").hover(function() {
+                $(this.css("visibility", "visible"));
+            }, function() {
+                $(this.css("visibility", "hidden"));
+            });
+        });
+    </script>
+    <script type="text/javascript" src="../prism.js"></script>
+    <script>
+        //Date event
+        var d = new Date();
+        var month = new Array();
+        month[0] = "January";
+        month[1] = "February";
+        month[2] = "March";
+        month[3] = "April";
+        month[4] = "May";
+        month[5] = "June";
+        month[6] = "July";
+        month[7] = "August";
+        month[8] = "September";
+        month[9] = "October";
+        month[10] = "November";
+        month[11] = "December";
+        var currentMonth = month[d.getMonth()];
+        var month = currentMonth;
+        var dateString = month + " " + d.getDate() + ", " + d.getFullYear();
+        document.getElementById("currentDate").innerHTML = dateString;
+    </script>
+    <script>
+        //https://css-tricks.com/snippets/jquery/smooth-scrolling/
+        //Smooth Scroll jQuery
+        $('a[href*="#"]:not([href="#"])').click(function(){  
+        var target = $(this.hash);
+          $('html, body').animate({
+              scrollTop: target.offset().
+              top}, 1200);
+          return false;
+        });
+    </script>
+</body>
+</html>

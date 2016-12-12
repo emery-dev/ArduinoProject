@@ -25,27 +25,33 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
+
+
                     </button>
                 </div>
 
-                <div class="collapse navbar-collapse">
+                <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="text-center"><a href="index.html">Home</a></li>
-                        <li class="dropdown text-center"><a href="projects/projects.html">Projects <b class="caret"></b></a>
+                        <li class=""><a href="index.html">Home</a></li>
+                        <li class="dropdown">
+                            <a href="projects/projects.html"> Projects <b class="caret"></b></a>
                             <ul id="projectsmenu" class="dropdown-menu">
-                                <li><a href="projects/project1/project1.html">Project 1</a></li>
+                                <li><a href="projects/project1/batterytester.html">Battery Tester</a></li>
                                 <li><a href="projects/project2/piezobuzzer.html">Piezo Buzzer</a></li>
                                 <li><a href="projects/project3/treyclock.html">Clock/Timer/Stopwatch</a></li>
-                                <li><a href="projects/project4/lightupsensor.html">Light Up Sensor</a></li>
+                                <li><a href="projects/project4/lightupsensor.html">Cookie Alarm</a></li>
                                 <li><a href="projects/project5/piano.html">Piano</a></li>
-                                <li><a href="#">Project 6</a></li>
+                                <li><a href="projects/project6/tweetingplant.html">Tweeting Plant</a></li>
+                                <li><a href="projects/project7/ledlight.html">LED Matrix</a></li>
+                                <li><a href="projects/project8/byoarduino.html">Build Your Own Arduino</a></li>
+                                <li><a href="projects/project9/carsensor.html">Car Sensor</a></li>
+                                <li><a href="projects/project10/lightshow.html">Light Show</a></li>
                             </ul>
                         </li>
-                        
+                        <!--Projects-->
                         <li><a href="schedule/monday.html">Schedule</a></li>
                         <li><a href="glossary.html">Glossary</a></li>
-                        
-                        <!--Projects-->
+
                     </ul>
                 </div>
                 <!--/.navbar-collapse -->
@@ -85,6 +91,18 @@
                         <p>A male connector is a connector attached to a wire, cable, or piece of hardware, having one or more exposed, unshielded electrical terminal s, and constructed in such a way that it can be inserted snugly into a receptacle (female connector) to ensure a reliable physical and electrical connection. This type of connector is also known as a plug. A male connector can be recognized by the fact that, when it is disconnected or removed, the unshielded electrical prongs are plainly visible.</p>
                     </div>
                 </div>
+
+                <!--glossary item-->
+                <div class="glossary-item">
+                    <h2 class="glossary-item-title" href="#">ATMEGA 328p Chip</h2>
+                    <div class="glossary-item-description">
+                        <p>This is a preprogrammed Atmega328P chip, useful if you want to make your own Arduino project This chip is programmed with 'ADAboot'. This means that there is still a 5-second delay from when you press the reset button to when the Arduino runs the sketch but that after you upload a new sketch it will begin immediately. This makes the debugging process much faster! Be sure to select "DUEMILANOVE with ATMEGA328" in the Arduino IDE.However it means that when Processing (or MaxMSP) opens the serial port, on an auto-reset Arduino there is a 5 second delay until the program starts. Which is why I added a second modification: If the first character sent to the Arduino isn't a '0' (ASCII zero, hex value 0x30) then it will automatically start the App. Bootloading works just fine but if you are talking to the Arduino with other software, just write a character to the Arduino that isnt a zero after opening the serial port to skip the long delay.
+                        </p>
+                        <div class="text-center">
+                            <img class="glossaryImg" src="glossaryImgs/chip.png" alt="chip">
+                        </div>
+                    </div>
+                </div>
                 <!--glossary item-->
                 <div class="glossary-item">
                     <h2 class="glossary-item-title" href="#">Breadboard</h2>
@@ -96,6 +114,21 @@
                         <div class="text-center">
                             <img class="glossaryImg" src="glossaryImgs/breadboard.png" alt="breadboard">
                         </div>
+                    </div>
+                </div>
+                <!--glossary item-->
+                <div class="glossary-item">
+                    <h2 class="glossary-item-title" href="#">C (Programming language)</h2>
+                    <div class="glossary-item-description">
+                        <p>C is a general-purpose, imperative computer programming language, supporting structured programming, lexical variable scope and recursion, while a static type system prevents many unintended operations</p>
+
+                    </div>
+                </div>
+                <!--glossary item-->
+                <div class="glossary-item">
+                    <h2 class="glossary-item-title" href="#">C++ (Programming language)</h2>
+                    <div class="glossary-item-description">
+                        <p>C++ is a general-purpose programming language. It has imperative, object-oriented and generic programming features, while also providing facilities for low-level memory manipulation.</p>
                     </div>
                 </div>
                 <!--glossary item-->
@@ -123,6 +156,14 @@
                         <div class="text-center">
                             <img class="glossaryImg" src="glossaryImgs/capacitor.png" alt="capacitor">
                         </div>
+                    </div>
+                </div>
+                <!--glossary item-->
+                <div class="glossary-item">
+                    <h2 class="glossary-item-title" href="#">Galvanized nail</h2>
+                    <div class="glossary-item-description">
+                        <p> Galvanized nails are nails that are covered with a protective layer of zinc
+                        </p>
                     </div>
                 </div>
                 <!--glossary item-->
@@ -178,6 +219,17 @@
                 </div>
                 <!--glossary item-->
                 <div class="glossary-item">
+                    <h2 class="glossary-item-title" href="#">LED Matrix Module MAX7219</h2>
+                    <div class="glossary-item-description">
+                        <p>Red dot matrix module with MAX7219 driver.
+                        </p>
+                        <div class="text-center">
+                            <img class="glossaryImg" src="glossaryImgs/LedModule.png" alt="lm">
+                        </div>
+                    </div>
+                </div>
+                <!--glossary item-->
+                <div class="glossary-item">
                     <h2 class="glossary-item-title" href="#">Resistor</h2>
                     <div class="glossary-item-description">
                         <p>A passive two-terminal electrical component that implements electrical resistance as a circuit element. In electronic circuits, resistors are used to reduce current flow, adjust signal levels, to divide voltages, bias active elements, and terminate transmission lines, among other uses.
@@ -189,12 +241,44 @@
                     </div>
                 </div>
                 <!--glossary item-->
-
                 <div class="glossary-item">
                     <h2 class="glossary-item-title" href="#">Sketch</h2>
                     <div class="glossary-item-description">
-                        <p>A variable is a place for storing a piece of data. It has a name, a type, and a value. For example, in the line: int ledPin = 13; // LED connected to digital pin 13 It declares a variable with the name ledPin, the type int, and an initial value of 13. It's being used to indicate which Arduino pin the LED is connected to. Every time the name ledPin appears in the code, its value will be retrieved. In this case, the person writing the program could have chosen not to bother creating the ledPin variable and instead have simply written 13 everywhere they needed to specify a pin number. The advantage of using a variable is that it's easier to move the LED to a different pin: you only need to edit the one line that assigns the initial value to the variable.
+                        <p>A variable is a place for storing a piece of data. It has a name, a type, and a value. For example, in the line: int ledPin = 13; // LED connected to digital pin 13 It declares a variable with the name ledPin, the type int, and an initial value of 13. It's being used to indicate which Arduino pin the LED is connected to. Every time the name ledPin appears in the code, its value will be retrieved. In this case, the person writing the program could have chosen not to bother creating the ledPin variable and instead have simply written 13 everywhere they needed to specify a pin number. The advantage of using a variable is that it's easier to move the LED to a different pin: you only need to edit the one line that assigns the initial value to the variable.</p>
+                    </div>
+                </div>
+                <!--glossary item-->
+                <div class="glossary-item">
+                    <h2 class="glossary-item-title" href="#">Solder/Soldering</h2>
+                    <div class="glossary-item-description">
+                        <p>Solder is a fusible metal alloy used to create a permanent bond between metal workpieces. Soldering is a process in which two or more items (usually metal) are joined together by melting and putting a filler metal (solder) into the joint, the filler metal having a lower melting point than the adjoining metal.
                         </p>
+                        <div class="text-center">
+                            <img class="glossaryImg" src="glossaryImgs/Solder.png" alt="Solder">
+                            <img class="glossaryImg" src="glossaryImgs/Soldering.png" alt="Soldering">
+                        </div>
+                    </div>
+                </div>
+                <!--glossary item-->
+                <div class="glossary-item">
+                    <h2 class="glossary-item-title" href="#">Stackable Header</h2>
+                    <div class="glossary-item-description">
+                        <p> Stackable header is used as Arduino Boards or other MCU Boards connector. The number of pins may vary.</p>
+                        <div class="text-center">
+                            <img class="glossaryImg" src="glossaryImgs/headers.png" alt="header">
+                        </div>
+                    </div>
+                </div>
+
+                <!--glossary item-->
+                <div class="glossary-item">
+                    <h2 class="glossary-item-title" href="#">Step Motor</h2>
+                    <div class="glossary-item-description">
+                        <p>A stepper motor or step motor or stepping motor is a brushless DC electric motor that divides a full rotation into a number of equal steps. The motor's position can then be commanded to move and hold at one of these steps without any feedback sensor (an open-loop controller), as long as the motor is carefully sized to the application in respect to torque and speed.
+                        </p>
+                        <div class="text-center">
+                            <img class="glossaryImg" src="glossaryImgs/motor.png" alt="motor">
+                        </div>
                     </div>
                 </div>
                 <!--glossary item-->
@@ -203,6 +287,27 @@
                     <div class="glossary-item-description">
                         <p>A function (otherwise known as a procedure or sub-routine) is a named piece of code that can be used from elsewhere in a sketch. For example, here's the definition of the setup() function from the Blink example: void setup() {   pinMode(ledPin, OUTPUT);      // sets the digital pin as output } The first line provides information about the function, like its name, "setup". The text before and after the name specify its return type and parameters: these will be explained later. The code between the { and } is called the body of the function: what the function does. You can call a function that's already been defined (either in your sketch or as part of the Arduino language). For example, the line pinMode(ledPin, OUTPUT); calls the pinMode() function, passing it two parameters: ledPinand OUTPUT. These parameters are used by the pinMode() function to decide which pin and mode to set.
                         </p>
+                    </div>
+                </div>
+                <!--glossary item-->
+                <div class="glossary-item">
+                    <h2 class="glossary-item-title" href="#">USB to Serial Converter FTDI</h2>
+                    <div class="glossary-item-description">
+                        <p>A USB to TTL(transistor-transistor logic) serial cable, with a FTDI(Future Technology Devices International Ltd.) FT232RL usb/serial chip embedded in the head. It has a 6-pin socket at the end with 5V power and ground, If drivers cannot be installed, go to http://www.ftdichip.com/Drivers/VCP.htm</p>
+                        <div class="text-center">
+                            <img class="glossaryImg" src="glossaryImgs/FTDI.png" alt="FTDI">
+                        </div>
+                    </div>
+                </div>
+
+                <!--glossary item-->
+                <div class="glossary-item">
+                    <h2 class="glossary-item-title" href="#">Ultrasonic sensor</h2>
+                    <div class="glossary-item-description">
+                        <p>Ultrasonic Sensor Distance Measuring Module for Arduino.</p>
+                        <div class="text-center">
+                            <img class="glossaryImg" src="glossaryImgs/sensor.png" alt="sensor">
+                        </div>
                     </div>
                 </div>
                 <!--glossary item-->
@@ -216,12 +321,12 @@
                     </div>
                 </div>
             </div>
-             <!--glossary-main-->
+            <!--glossary-main-->
         </div>
-        
+
     </div>
     <!--wrapper-->
-    
+
     <div id="footer">
         <h2>© 2016 Gettysburg College. All Rights Reserved</h2>
     </div>
@@ -264,22 +369,24 @@
         $('h2.glossary-item-title').each(function () {
             var $this = $(this);
             $this.next('.glossary-item-description').hide();
-
-            function toggleActive() {                               $('.active').toggleClass('active').next('.glossary-item-description').slideToggle(800);
+            
+            function toggleActive() {
+                $('.active').toggleClass('active').next('.glossary-item-description').slideToggle(800);
             }
 
             $this.click(function () {
                 if (!$(this).hasClass('active')) {
                     toggleActive(); // hide all and...
+                    $('.glossary-item-description').hide();
                 }
                 $this.toggleClass("active").next('.glossary-item-description').slideToggle(800);
             });
         });
-        
     </script>
 
     <script>
         function searchFunction() {
+            $('.glossary-item-description').hide();
             // Adapted from http://www.w3schools.com/howto/howto_js_filter_table.asp
             var input, filter, components, component, i;
             input = document.getElementById("searchInput");

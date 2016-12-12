@@ -48,7 +48,7 @@
                         <!--Projects-->
                         <li><a href="../../schedule/monday.html">Schedule</a></li>
                         <li><a href="../../glossary.html">Glossary</a></li>
-                        
+
                     </ul>
                 </div>
                 <!--/.navbar-collapse -->
@@ -64,16 +64,16 @@
             <section class="overview">
                 <div class="container">
                     <div id="leftProjectOverview" class="col-md-5 text-center">
-                        <h1 class="page-header" id="projectName">ADD PROJECT TITLE</h1>
+                        <h1 class="page-header" id="projectName">Battery Level Indicator</h1>
                         <h2 class="page-header">About</h2>
-                        <p class="text-left">ADD ABOUT</p>
+                        <p class="text-left">This Project will deterine the charge level of a 9 volt battery. The amount of charge will be relayed to the user through LED lights. If the battery is fully charged a green light will illuminate, yellow for partially charged and red if the battery is dead.</p>
                         <h2 class="page-header">Information</h2>
-                        <p class="text-left">Difficulty: <span style="color:#F68026">ADD DIFFICULTY</span></p>
-                        <p class="text-left">Estimated time: <span style="color:#005696">ADD TIME</span></p>
+                        <p class="text-left">Difficulty: <span style="color:#F68026">Easy</span></p>
+                        <p class="text-left">Estimated time: <span style="color:#005696">1-2 hours</span></p>
                     </div>
 
                     <div id="rightProjectOverview" class="col-md-7">
-                        <img src="ADD IMAGE" class="img-fluid" alt="Project">
+                        <img src="imgs/battery.jpg" class="img-fluid" alt="Project">
                     </div>
                 </div>
             </section>
@@ -81,67 +81,113 @@
             <section class="description">
                 <div class="container">
                     <div class="row">
-                        
+
                         <div class="col-md-7 col-md-offset-1 left-aside">
                             <section class="subsection gototarget" id="subsection-story">
                                 <h2 class="subsection-title">Story</h2>
-                                <p>ADD STORY.</p>
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    ADD IFRAME YOUTUBE VIDEO
-                                </div>
+                                <p>This useful little device will let you know when it is time to swap out you batteries. It is simple and fun for beginners to get into the fun of Arduino building and coding!</p>
                                 <!--End embed-->
                             </section>
                             <!--End story subsection-->
-                            
+
                             <section class="subsection gototarget" id="subsection-components">
                                 <h2 class="subsection-title">Components</h2>
                                 <div class="components">
                                     <p>The following hardware components were used in this project:</p>
                                     <ul>
-                                        <li>COMPONENTS</li>
+                                        <li>1x Arduino Uno</li>
+                                        <li>1x Small Breadboard)</li>
+                                        <li>9 Male-to-female wires</li>
+                                        <li>9 Volt battery Snap</li>
+                                        <li>9 Volt battery</li>
+                                        <li>3x LED's (green, yellow, red)</li>
+                                        <li>3x 330 ohm resistors</li>
+                                        <li>Arduino IDE</li>
                                     </ul>
                                 </div>
                                 <!--End Components list-->
                             </section>
                             <!--End components subsection-->
-                            
+
                             <section class="subsection gototarget" id="subsection-schematics">
                                 <h2 class="subsection-title">Schematics and Assembly</h2>
                                 <div class="schematics">
-                                    <h4></h4>
-                                    <img src="ENTER HERE">
+                                    <h4>Figure 1</h4>
+                                    <img src="imgs/Schem.jpg">
                                 </div>
                             </section>
                             <!--End Schematics subsection-->
-                            
+
                             <section class="subsection gototarget" id="subsection-instructions">
                                 <h2 class="subsection-title">Instructions</h2>
-                            
+                                <h4>Hardware connections:</h4>
+                                <p>There is very little wiring in this project. First, ground the breadboard by running a wire from the GRND port on the Arduino to the negative rail on the Breadboard.</p>
+                                <p>Next, wire the battery clip to the breadboard and run a wire from the same row as the batteries positive end(the red wire) to A0 on the Arduino.</p>
+                                <p>Now you will put the LED lights on the breadboard, and, wire the yellow light (through a resistor) to digital port 4, and wire the red light (through a resistor) to digital port 6.</p>
+                                <p>DO NOT forget to ground the LED lights with a wire from the negative rail to the negative end of the light(the shorter end).</p>
                             </section>
                             <!--End instructions section-->
-                            
+
                             <section class="subsection gototarget" id="subsection-code">
                                 <h2 class="subsection-title">Code</h2>
                                 <div class="code">
-                                    <pre style="height:500px; margin-bottom:25px;"><code class="language-clike"></code></pre>
+                                    <pre style="height:500px; margin-bottom:25px;"><code class="language-clike">//R3 Battery Tester
+#define newLED 2 //green  LED
+#define okLED 4 // yellow LED
+#define oldLED 6 //red LED
+
+int analogValue = 0;
+float voltage = 0;
+int ledDelay = 3000;
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(newLED, OUTPUT);
+  pinMode(okLED, OUTPUT);
+  pinMode(oldLED, OUTPUT);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  delay(1000);
+  analogValue = analogRead(0);
+  voltage = analogValue * 0.0048;
+  if (voltage >= 1.6) {
+    digitalWrite(newLED, HIGH);
+    delay(ledDelay);
+    digitalWrite(newLED, LOW);
+  }
+  else if (voltage >= 1.4) {
+    digitalWrite(okLED, HIGH);
+    delay(ledDelay);
+    digitalWrite(okLED, LOW);
+  }
+  else {
+    digitalWrite(oldLED, HIGH);
+    delay(ledDelay);
+    digitalWrite(oldLED, LOW);
+  }
+
+}</code></pre>
                                 </div>
                             </section>
                             <!--End code section-->
-                        
+
                         </div>
                         <!--Left description-->
 
                         <div class="col-md-3 col-md-offset-1 right-aside">
-                                <div class="affixable" data-spy="affix" data-offset-top="695" style>
-                                    <ul class="nav">
-                                        <li class="active"><a class="smooth-scroll" href="#subsection-story">Story</a></li>
-                                        <li class=""><a class="smooth-scroll" href="#subsection-components">Components</a></li>
-                                        <li class=""><a class="smooth-scroll" href="#subsection-schematics">Schematics</a></li>
-                                        <li class=""><a class="smooth-scroll" href="#subsection-instructions">Instructions</a></li>
-                                        <li class=""><a class="smooth-scroll" href="#subsection-code">Code</a></li>
-                                    </ul>
-                                </div>
-                           
+                            <div class="affixable" data-spy="affix" data-offset-top="695" style>
+                                <ul class="nav">
+                                    <li class="active"><a class="smooth-scroll" href="#subsection-story">Story</a></li>
+                                    <li class=""><a class="smooth-scroll" href="#subsection-components">Components</a></li>
+                                    <li class=""><a class="smooth-scroll" href="#subsection-schematics">Schematics</a></li>
+                                    <li class=""><a class="smooth-scroll" href="#subsection-instructions">Instructions</a></li>
+                                    <li class=""><a class="smooth-scroll" href="#subsection-code">Code</a></li>
+                                </ul>
+                            </div>
+
                         </div>
                         <!--Right instruction jump-->
                     </div>
@@ -157,15 +203,15 @@
     <div id="footer">
         <h2>© 2016 Gettysburg College. All Rights Reserved</h2>
     </div>
-    
-    
+
+
     <!--SCRIPTS-->
     <script>
         //jQuery hover menu
-        $(document).ready(function() {
-            $(".dropdown").hover(function() {
+        $(document).ready(function () {
+            $(".dropdown").hover(function () {
                 $(this.css("visibility", "visible"));
-            }, function() {
+            }, function () {
                 $(this.css("visibility", "hidden"));
             });
         });
@@ -195,13 +241,15 @@
     <script>
         //https://css-tricks.com/snippets/jquery/smooth-scrolling/
         //Smooth Scroll jQuery
-        $('a[href*="#"]:not([href="#"])').click(function(){  
-        var target = $(this.hash);
-          $('html, body').animate({
-              scrollTop: target.offset().
-              top}, 1200);
-          return false;
+        $('a[href*="#"]:not([href="#"])').click(function () {
+            var target = $(this.hash);
+            $('html, body').animate({
+                scrollTop: target.offset().
+                top
+            }, 1200);
+            return false;
         });
     </script>
 </body>
+
 </html>

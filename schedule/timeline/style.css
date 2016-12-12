@@ -253,6 +253,7 @@ header h1 {
 .cd-timeline-content p {
     margin-bottom:10px;
     line-height: 1.6;
+    cursor: default;
 }
 .cd-timeline-content .cd-read-more {
   float: right;

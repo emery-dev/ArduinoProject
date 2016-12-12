@@ -7,7 +7,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:700,400,300' rel='stylesheet' type='text/css'>
-    <!--MAKE SURE CORRECT FOLDER-->
     <link rel="stylesheet" href="../prism.css">
     <link rel="stylesheet" href="../../main.css">
 
@@ -35,7 +34,7 @@
                             <a href="../projects.html"> Projects <b class="caret"></b></a>
                             <ul id="projectsmenu" class="dropdown-menu">
                                 <li><a href="../project1/batterytester.html">Battery Tester</a></li>
-                                <li><a href="piezobuzzer.html">Piezo Buzzer</a></li>
+                                <li><a href="../project2/piezobuzzer.html">Piezo Buzzer</a></li>
                                 <li><a href="../project3/treyclock.html">Clock/Timer/Stopwatch</a></li>
                                 <li><a href="../project4/lightupsensor.html">Cookie Alarm</a></li>
                                 <li><a href="../project5/piano.html">Piano</a></li>
@@ -65,16 +64,16 @@
             <section class="overview">
                 <div class="container">
                     <div id="leftProjectOverview" class="col-md-5 text-center">
-                        <h1 class="page-header" id="projectName">Piezo Buzzer</h1>
+                        <h1 class="page-header" id="projectName">Light Show</h1>
                         <h2 class="page-header">About</h2>
-                        <p class="text-left">This project will introduce you to the piezo buzzer. You can learn how to play sounds, tones, and  even songs with these simple components. Once you feel comfortable with the buzzer, adjust the code to play a tune you like.</p>
+                        <p class="text-left">This is final competition, you will be competing for eternal glory. For this project you will be using LED lights and Breadboards to create a light display set to the music of your choice. We will not be providing you a schematic or with code for this project as we expect you to be able to do this project without help and show off your creativity. Good luck and have fun!</p>
                         <h2 class="page-header">Information</h2>
-                        <p class="text-left">Difficulty: <span style="color:#F68026">Easy</span></p>
-                        <p class="text-left">Estimated time: <span style="color:#005696">30 minutes - 1 hour</span></p>
+                        <p class="text-left">Difficulty: <span style="color:#F68026">Medium</span></p>
+                        <p class="text-left">Estimated time: <span style="color:#005696">2-3 hours</span></p>
                     </div>
 
                     <div id="rightProjectOverview" class="col-md-7">
-                        <img src="imgs/buzzerOverview.jpg" class="img-fluid" alt="Project">
+                        <img src="imgs/lightshowOverview.png" class="img-fluid" alt="Project">
                     </div>
                 </div>
             </section>
@@ -82,15 +81,10 @@
             <section class="description">
                 <div class="container">
                     <div class="row">
-                        
                         <div class="col-md-7 col-md-offset-1 left-aside">
                             <section class="subsection gototarget" id="subsection-story">
                                 <h2 class="subsection-title">Story</h2>
-                                <p>The piezo buzzer is a small noise-maker that can make simple tunes come to life. You can turn simple beeps into whatever your mind can imagine. Below is an example of just how creative you can get with the buzzer. You can make this tune all on your own.</p>
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/-kkxs_fekWM" frameborder="0" allowfullscreen></iframe>
-                                </div>
-                                <!--End embed-->
+                                <p>You will be creating a light show in time with music, it can be as complex or as simple as you like, but remember this is a contest so show us what you got!</p>
                             </section>
                             <!--End story subsection-->
                             
@@ -99,146 +93,28 @@
                                 <div class="components">
                                     <p>The following hardware components were used in this project:</p>
                                     <ul>
-                                        <li>1x Arduino Uno, or IEIK UNO</li>
-                                        <li>1x Breadboard</li>
-                                        <li>1x Piezo Buzzer</li>
-                                        <li>2-4x Male-to-Male wires</li>
-                                        <li>Arduino IDE</li>
+                                        <li>1x Arduino Uno</li>
+                                        <li>LED Lights (Max 30)</li>
+                                        <li>220 ohm Resistors (Max 30)</li>
+                                        <li>Wiring</li>
+                                        <li>Music!</li>
                                     </ul>
                                 </div>
                                 <!--End Components list-->
                             </section>
                             <!--End components subsection-->
                             
-                            <section class="subsection gototarget" id="subsection-schematics">
-                                <h2 class="subsection-title">Schematics and Assembly</h2>
-                                <div class="schematics">
-                                    <h4></h4>
-                                    <img src="imgs/buzzerDiagram.png">
-                                </div>
-                            </section>
-                            <!--End Schematics subsection-->
-                            
                             <section class="subsection gototarget" id="subsection-instructions">
                                 <h2 class="subsection-title">Instructions</h2>
-                                <h4>Hardware connections:</h4>
-                                <p>The buzzer has two pins. One is positive and one is negative. The positive pin is marked by a "+" symbol on both the top and bottom of the buzzer. Connect the positive pin to Arduino digital pin 9 (note that this must be a PWM pin). Connect the negative pin to GND.</p>
-                                <p>Tip: if the buzzer doesn't fit into the breadboard easily, try rotating it slightly to fit into diagonal holes.</p>
-                                <p>The piezo buzzer is a component you can use to make noises. In the buzzer is a coil of wire and small magnet. When current, or electricity, flows through the coil, it becomes magnetized and pulls toward the magnet, creating a slight "click". When you do this thousands of times per second, you can create tones. Alternating just how many times you do this, you can make different noises with the buzzer.</p>
-                                <p>The Arduino has a built-in command called tone(), which clicks the buzzer at a certain frequency. This code snippet knows the frequencies of common notes, allowing you to create songs.</p>
-                                <h4 style="margin-top:40px;">Coding:</h4>
-                                <p>Open Up the Arduino IDE software on your computer. Coding in the Arduino language will control your circuit.One of Arduino’s many useful built-in commands is the tone() function. Tone is used like such: <code>tone(pin, frequency, duration);</code></p>
-                                <p> This function drives an output pin at a certain frequency, making it perfect for driving buzzers and speakers. If you give it a duration (in milliseconds), it will play the tone then stop. If you don’t give it a duration, it will keep playing the tone forever (but you can stop it with another function, <code>noTone()</code>).</p>
-                                <p>Looking at the code below, use this as a reference to how you want to build your piezo buzzer tune. Because the tone frequencies are given to us, you should be able to set up a quick few tones quickly. Keep adding to them and testing along the way.</p>
+                                <h4><b>Overview:</b></h4>
+                                <p>For this project you will be mostly on your own, just remember that the longer wire in the LED is for the positive current, and the shorter wire is for the ground. Also, when connecting the LED to the positive current always use a resistor. If you do not remember how to code for the LED lights look back at the distance sensor project. Finally, get instructor approval for your choice of song early on, and make sure that you pick an appropriate song.</p>
                             </section>
                             <!--End instructions section-->
                             
                             <section class="subsection gototarget" id="subsection-code">
                                 <h2 class="subsection-title">Code</h2>
                                 <div class="code">
-                                    <pre style="height:500px; margin-bottom:25px;"><code class="language-clike">/*
-The Arduino's tone() command will play notes of a given frequency.
-We'll provide a function that takes in note characters (a-g),
-and returns the corresponding frequency from this table:
-
-  note  frequency
-  c     262 Hz
-  d     294 Hz
-  e     330 Hz
-  f     349 Hz
-  g     392 Hz
-  a     440 Hz
-  b     494 Hz
-  C     523 Hz
-
-For more information, see http://arduino.cc/en/Tutorial/Tone
-*/
-
-const int buzzerPin = 9;
-
-// We'll set up an array with the notes we want to play
-// change these values to make different songs!
-// Length must equal the total number of notes and spaces 
-
-const int songLength = 18;
-
-// Notes is an array of text characters corresponding to the notes
-// in your song. A space represents a rest (no tone)
-
-char notes[] = "cdfda ag cdfdg gf "; // a space represents a rest
-
-// Beats is an array of values for each note and rest.
-// A "1" represents a quarter-note, 2 a half-note, etc.
-// Don't forget that the rests (spaces) need a length as well.
-
-int beats[] = {1,1,1,1,1,1,4,4,2,1,1,1,1,1,1,4,4,2};
-
-// The tempo is how fast to play the song.
-// To make the song play faster, decrease this value.
-
-int tempo = 113;
-
-void setup(){
-  pinMode(buzzerPin, OUTPUT);
-}
-
-void loop(){
-  int i, duration;
-
-  for (i = 0; i < songLength; i++) // step through the song arrays
-  {
-    duration = beats[i] * tempo;  // length of note/rest in ms
-
-    if (notes[i] == ' ')          // is this a rest? 
-    {
-      delay(duration);            // then pause for a moment
-    }
-    else                          // otherwise, play the note
-    {
-      tone(buzzerPin, frequency(notes[i]), duration);
-      delay(duration);            // wait for tone to finish
-    }
-    delay(tempo/10);              // brief pause between notes
-  }
-
-  // We only want to play the song once, so we'll pause forever:
-  while(true){}
-  // If you'd like your song to play over and over,
-  // remove the above statement
-}
-
-int frequency(char note) 
-{
-  // This function takes a note character (a-g), and returns the
-  // corresponding frequency in Hz for the tone() function.
-
-  int i;
-  const int numNotes = 8;  // number of notes we're storing
-
-  // The following arrays hold the note characters and their
-  // corresponding frequencies. The last "C" note is uppercase
-  // to separate it from the first lowercase "c". If you want to
-  // add more notes, you'll need to use unique characters.
-
-  // For the "char" (character) type, we put single characters
-  // in single quotes.
-
-  char names[] = { 'c', 'd', 'e', 'f', 'g', 'a', 'b', 'C' };
-  int frequencies[] = {262, 294, 330, 349, 392, 440, 494, 523};
-
-  // Now we'll search through the letters in the array, and if
-  // we find it, we'll return the frequency for that note.
-
-  for (i = 0; i < numNotes; i++)  // Step through the notes
-  {
-    if (names[i] == note)         // Is this the one?
-    {
-      return(frequencies[i]);     // Yes! Return the frequency
-    }
-  }
-  return(0);  // We looked through everything and didn't find it,
-              // but we still need to return a value, so return 0.
-}</code></pre>
+                                    <pre style="height:500px; margin-bottom:25px;"><code class="language-clike"> Implement on your own!</code></pre>
                                 </div>
                             </section>
                             <!--End code section-->
@@ -251,7 +127,6 @@ int frequency(char note)
                                     <ul class="nav">
                                         <li class="active"><a class="smooth-scroll" href="#subsection-story">Story</a></li>
                                         <li class=""><a class="smooth-scroll" href="#subsection-components">Components</a></li>
-                                        <li class=""><a class="smooth-scroll" href="#subsection-schematics">Schematics</a></li>
                                         <li class=""><a class="smooth-scroll" href="#subsection-instructions">Instructions</a></li>
                                         <li class=""><a class="smooth-scroll" href="#subsection-code">Code</a></li>
                                     </ul>
